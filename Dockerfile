@@ -3,3 +3,4 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN useradd -m user && echo "user:password" | chpasswd
 RUN echo 'root:password' | chpasswd
 CMD [ "/bin/bash" ]
+CMD [ "/usr/bin/python3","pip","install","esptool" ]
