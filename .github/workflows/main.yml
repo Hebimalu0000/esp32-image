@@ -1,0 +1,64 @@
+name: CheerpX - OS maker
+
+on:
+  workflow_dispatch:
+    inputs:
+      flag:
+        type: boolean 
+        required: true 
+        description: 'Deploy'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup⌛️
+        uses: actions/checkout@v4
+
+      - name: Make✨️ mode (docker build)
+        if: ${{ github.event.inputs.flag == 'false' }}
+        run: |
+          buildah build -f Dockerfile --platform linux/i386 -t cheerpximage
+          podman create --name cheerpxcontainer cheerpximage
+          mkdir -p rootfs
+          podman unshare podman cp cheerpxcontainer:/ rootfs/
+
+      - name: Make✨️ mode (git push)
+        if: ${{ github.event.inputs.flag == 'false' }}
+        run: |
+          sudo git config user.name auto-push
+          sudo git config user.email auto-push@example.com
+          sudo git add .
+          sudo git commit -m "auto push from ci" || echo no commits
+          sudo git push
+
+      - name: Deploy📦️ mode (copy file)
+        if: ${{ github.event.inputs.flag == 'true' }}
+        run: |
+          mkdir -p build
+          cp -pR pages/* build
+
+      - name: Deploy📦️ mode (compress filesystem)
+        if: ${{ github.event.inputs.flag == 'true' }}
+        run: |
+          podman unshare mkfs.ext2 -b 4096 -d rootfs/ build/images.ext2 600M
+
+  deploy_to_github_pages: # Job that deploys the github-pages artifact to github-pages.
+    if: ${{ github.event.inputs.flag == 'true' }}
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    runs-on: ubuntu-latest
+    steps:
+      # Deployment to github pages
+      - name: Deploy📦️ mode (push pages)
+        id: deployment
+        uses: actions/deploy-pages@v4
