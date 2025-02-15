@@ -1,7 +1,17 @@
 FROM --platform=i386 i386/debian:buster
+
+# Set non-interactive frontend
 ARG DEBIAN_FRONTEND=noninteractive
+
+# Add user and set passwords
 RUN useradd -m user && echo "user:password" | chpasswd
 RUN echo 'root:password' | chpasswd
-CMD [ "/bin/bash" ]
-RUN sudo apt-get install python3
-RUN pip install esptool
+
+# Update and install Python 3 and pip
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+# Install esptool via pip
+RUN pip3 install esptool
+
+# Set default command
+CMD ["/bin/bash"]
