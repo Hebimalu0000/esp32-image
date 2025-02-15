@@ -111,6 +111,11 @@ Name: glibc/upgrade
 Template: glibc/upgrade
 Owners: libc6, libc6:i386
 
+Name: iproute2/setcaps
+Template: iproute2/setcaps
+Value: false
+Owners: iproute2
+
 Name: libpam-modules/disable-screensaver
 Template: libpam-modules/disable-screensaver
 Owners: libpam-modules
@@ -155,6 +160,14 @@ Owners: libpam0g:i386
 Name: libraries/restart-without-asking
 Template: libraries/restart-without-asking
 Owners: libc6, libc6:i386, libpam0g:i386
+
+Name: libssl1.1/restart-failed
+Template: libssl1.1/restart-failed
+Owners: libssl1.1:i386
+
+Name: libssl1.1/restart-services
+Template: libssl1.1/restart-services
+Owners: libssl1.1:i386
 
 Name: tzdata/Areas
 Template: tzdata/Areas

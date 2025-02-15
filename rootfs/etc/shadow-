@@ -1,4 +1,4 @@
-root:*:19886:0:99999:7:::
+root:$6$AyDOR.RSJwJtB3/w$5Ko.DhnK6HqbX.ArB2Yi.QkLxTFKJrEGjHgeB/0JcIO8fYi0aSXQdtaf24PCJiH3/z/XLK5H7ZjAJ1bXlxjzU.:20134:0:99999:7:::
 daemon:*:19886:0:99999:7:::
 bin:*:19886:0:99999:7:::
 sys:*:19886:0:99999:7:::
@@ -17,3 +17,5 @@ irc:*:19886:0:99999:7:::
 gnats:*:19886:0:99999:7:::
 nobody:*:19886:0:99999:7:::
 _apt:*:19886:0:99999:7:::
+user:$6$lcxNPpud9ZRzdTao$GrS1PPOtkFJaeooBH/90NMOXXy91Y1xF2x0W7oIN7tG4iSJFSuCikNtKCbXNa.Z.6TMC.nwqaMtLUfe7jDT95.:20134:0:99999:7:::
+messagebus:*:20134:0:99999:7:::

@@ -1,0 +1,12 @@
+13ac04229717ec751ea1fa2117cfc557  usr/bin/gencat
+e4dda82c6915a2a01b4d31b11a26536b  usr/bin/mtrace
+299afe1798e01fbe62b56818e111356f  usr/bin/rpcgen
+488cf24b38f9ae5d269f11db6e865a90  usr/bin/sotruss
+f698405ad1efe8c53773efae9dbe4353  usr/bin/sprof
+77b9f1bd6d1926834598cb85dd553298  usr/share/doc/libc-dev-bin/changelog.Debian.gz
+48d68260ab7331ccff4ff77677d7607d  usr/share/doc/libc-dev-bin/changelog.gz
+d848be5c37cd71d76c5a7b9e7e28868a  usr/share/doc/libc-dev-bin/copyright
+449422aea0300c5c2a8e790cade1efac  usr/share/lintian/overrides/libc-dev-bin
+19548a7cc153f6e3e6b04e968268b497  usr/share/man/man1/gencat.1.gz
+a1a34953150a51126c79e4b5970192be  usr/share/man/man1/rpcgen.1.gz
+5bcb4efe618ed89d610edcd6c26aa159  usr/share/man/man1/sotruss.1.gz

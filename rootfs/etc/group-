@@ -37,3 +37,4 @@ staff:x:50:
 games:x:60:
 users:x:100:
 nogroup:x:65534:
+user:x:1000:

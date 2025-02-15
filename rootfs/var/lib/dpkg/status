@@ -143,6 +143,65 @@ Description: GNU Bourne Again SHell
  the bash-completion package.
 Homepage: http://tiswww.case.edu/php/chet/bash/bashtop.html
 
+Package: binutils
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 93
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Version: 2.31.1-16
+Provides: binutils-gold, elf-binutils
+Depends: libc6 (>= 2.27), zlib1g (>= 1:1.1.4), binutils-common (= 2.31.1-16), libbinutils (= 2.31.1-16), binutils-i686-linux-gnu (= 2.31.1-16)
+Suggests: binutils-doc (>= 2.31.1-16)
+Conflicts: binutils-mingw-w64-i686 (<< 2.23.52.20130612-1+3), binutils-mingw-w64-x86-64 (<< 2.23.52.20130612-1+3), binutils-multiarch (<< 2.27-8), modutils (<< 2.4.19-1)
+Description: GNU assembler, linker and binary utilities
+ The programs in this package are used to assemble, link and manipulate
+ binary and object files.  They may be used in conjunction with a compiler
+ and various libraries to build programs.
+Homepage: https://www.gnu.org/software/binutils/
+
+Package: binutils-common
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 13000
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: binutils
+Version: 2.31.1-16
+Replaces: binutils (<< 2.29.1-3.1~)
+Breaks: binutils (<< 2.29.1-3.1~)
+Description: Common files for the GNU assembler, linker and binary utilities
+ This package contains the localization files used by binutils packages for
+ various target architectures and parts of the binutils documentation. It is
+ not useful on its own.
+Homepage: https://www.gnu.org/software/binutils/
+
+Package: binutils-i686-linux-gnu
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 11764
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: allowed
+Source: binutils
+Version: 2.31.1-16
+Replaces: binutils (<< 2.29-6)
+Provides: binutils-i586-linux-gnu
+Depends: binutils-common (= 2.31.1-16), libbinutils (= 2.31.1-16), libc6 (>= 2.27), zlib1g (>= 1:1.1.4)
+Suggests: binutils-doc (= 2.31.1-16)
+Breaks: binutils (<< 2.29-6)
+Description: GNU binary utilities, for i686-linux-gnu target
+ This package provides GNU assembler, linker and binary utilities
+ for the i686-linux-gnu target.
+ .
+ You don't need this package unless you plan to cross-compile programs
+ for i686-linux-gnu and i686-linux-gnu is not your native platform.
+Homepage: https://www.gnu.org/software/binutils/
+
 Package: bsdutils
 Essential: yes
 Status: install ok installed
@@ -162,6 +221,84 @@ Description: basic utilities from 4.4BSD-Lite
  This package contains the bare minimum of BSD utilities needed for a
  Debian system: logger, renice, script, scriptreplay, and wall. The
  remaining standard BSD utilities are provided by bsdmainutils.
+
+Package: build-essential
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 20
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Version: 12.6
+Depends: libc6-dev | libc-dev, gcc (>= 4:8.3), g++ (>= 4:8.3), make, dpkg-dev (>= 1.17.11)
+Description: Informational list of build-essential packages
+ If you do not plan to build Debian packages, you don't need this
+ package.  Starting with dpkg (>= 1.14.18) this package is required
+ for building Debian packages.
+ .
+ This package contains an informational list of packages which are
+ considered essential for building Debian packages.  This package also
+ depends on the packages on that list, to make it easy to have the
+ build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
+ .
+ This package is NOT the definition of what packages are
+ build-essential; the real definition is in the Debian Policy Manual.
+ This package contains merely an informational list, which is all
+ most people need.   However, if this package and the manual disagree,
+ the manual is correct.
+
+Package: bzip2
+Status: install ok installed
+Priority: standard
+Section: utils
+Installed-Size: 197
+Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Version: 1.0.6-9.2~deb10u2
+Replaces: libbz2 (<< 0.9.5d-3)
+Depends: libbz2-1.0 (= 1.0.6-9.2~deb10u2), libc6 (>= 2.4)
+Suggests: bzip2-doc
+Description: high-quality block-sorting file compressor - utilities
+ bzip2 is a freely available, patent free, data compressor.
+ .
+ bzip2 compresses files using the Burrows-Wheeler block-sorting text
+ compression algorithm, and Huffman coding.  Compression is generally
+ considerably better than that achieved by more conventional
+ LZ77/LZ78-based compressors, and approaches the performance of the PPM
+ family of statistical compressors.
+ .
+ The archive file format of bzip2 (.bz2) is incompatible with that of its
+ predecessor, bzip (.bz).
+Homepage: https://web.archive.org/web/20180801004107/http://www.bzip.org/
+
+Package: ca-certificates
+Status: install ok installed
+Priority: optional
+Section: misc
+Installed-Size: 402
+Maintainer: Julien Cristau <jcristau@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Version: 20200601~deb10u2
+Depends: openssl (>= 1.1.1), debconf (>= 0.5) | debconf-2.0
+Breaks: ca-certificates-java (<< 20121112+nmu1)
+Enhances: openssl
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow
+ SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Debian can neither confirm nor deny whether the
+ certificate authorities whose certificates are included in this package
+ have in any way been audited for trustworthiness or RFC 3647 compliance.
+ Full responsibility to assess them belongs to the local system
+ administrator.
 
 Package: coreutils
 Essential: yes
@@ -189,6 +326,49 @@ Description: GNU core utilities
  uniq unlink users vdir wc who whoami yes
 Homepage: http://gnu.org/software/coreutils
 
+Package: cpp
+Status: install ok installed
+Priority: optional
+Section: interpreters
+Installed-Size: 43
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: allowed
+Source: gcc-defaults (1.181)
+Version: 4:8.3.0-1
+Depends: cpp-8 (>= 8.3.0-1~)
+Suggests: cpp-doc
+Conflicts: cpp-doc (<< 1:2.95.3)
+Description: GNU C preprocessor (cpp)
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+ .
+ This is a dependency package providing the default GNU C preprocessor.
+
+Package: cpp-8
+Status: install ok installed
+Priority: optional
+Section: interpreters
+Installed-Size: 26801
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Source: gcc-8
+Version: 8.3.0-6
+Replaces: gccgo-8 (<< 8.3.0-6)
+Depends: gcc-8-base (= 8.3.0-6), libc6 (>= 2.28), libgmp10 (>= 2:5.0.1~), libisl19 (>= 0.15), libmpc3, libmpfr6 (>= 3.1.3), zlib1g (>= 1:1.1.4)
+Suggests: gcc-8-locales (>= 8)
+Breaks: hardening-wrapper (<< 2.8+nmu3), libmagics++-dev (<< 2.28.0-4)
+Description: GNU C preprocessor
+ A macro processor that is used automatically by the GNU C compiler
+ to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+Homepage: http://gcc.gnu.org/
+
 Package: dash
 Essential: yes
 Status: install ok installed
@@ -209,6 +389,40 @@ Description: POSIX-compliant shell
  dependencies (making it more robust against software or hardware
  failures), it is used as the default system shell on Debian systems.
 Homepage: http://gondor.apana.org.au/~herbert/dash/
+
+Package: dbus
+Status: install ok installed
+Priority: standard
+Section: admin
+Installed-Size: 641
+Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Version: 1.12.28-0+deb10u1
+Provides: dbus-bin (= 1.12.28-0+deb10u1), dbus-system-bus (= 1.12.28-0+deb10u1)
+Depends: adduser, libapparmor1 (>= 2.8.94), libaudit1 (>= 1:2.2.1), libc6 (>= 2.28), libcap-ng0 (>= 0.7.9), libdbus-1-3 (= 1.12.28-0+deb10u1), libexpat1 (>= 2.1~beta3), libselinux1 (>= 2.0.65), libsystemd0
+Suggests: default-dbus-session-bus | dbus-session-bus
+Conffiles:
+ /etc/default/dbus 0d0f25a2f993509c857eb262f6e22015
+ /etc/init.d/dbus ec9a7d183ec50837a12aca3f9c95cc27
+Description: simple interprocess messaging system (daemon and utilities)
+ D-Bus is a message bus, used for sending messages between applications.
+ Conceptually, it fits somewhere in between raw sockets and CORBA in
+ terms of complexity.
+ .
+ D-Bus supports broadcast messages, asynchronous messages (thus
+ decreasing latency), authentication, and more. It is designed to be
+ low-overhead; messages are sent using a binary protocol, not using
+ XML. D-Bus also supports a method call mapping for its messages, but
+ it is not required; this makes using the system quite simple.
+ .
+ It comes with several bindings, including GLib, Python, Qt and Java.
+ .
+ This package contains the D-Bus daemon and related utilities.
+ .
+ The client-side library can be found in the libdbus-1-3 package, as it is no
+ longer contained in this package.
+Homepage: http://dbus.freedesktop.org/
 
 Package: debconf
 Status: install ok installed
@@ -279,6 +493,31 @@ Description: Miscellaneous utilities specific to Debian
  add-shell installkernel ischroot remove-shell run-parts savelog
  tempfile which
 
+Package: dh-python
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 451
+Maintainer: Piotr Ożarowski <piotr@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Version: 3.20190308
+Replaces: python3 (<< 3.3.2-4~)
+Provides: dh-sequence-pypy, dh-sequence-python2, dh-sequence-python3
+Depends: python3:any, python3-distutils | python3 (<< 3.6.5~rc1-1)
+Suggests: libdpkg-perl, dpkg-dev
+Breaks: python3 (<< 3.3.2-4~)
+Description: Debian helper tools for packaging Python libraries and applications
+ This package contains:
+  * pybuild - invokes various build systems for requested Python versions in
+    order to build modules and extensions
+  * dh_python2 - calculates Python 2.X dependencies for Debian packages,
+    adds maintainer scripts to byte compile files, etc.
+  * dh_python3 - calculates Python 3.X dependencies for Debian packages,
+    adds maintainer scripts to byte compile files, etc.
+  * dh_pypy - calculates PyPy dependencies for Debian packages,
+    adds maintainer scripts to byte compile files, etc.
+
 Package: diffutils
 Essential: yes
 Status: install ok installed
@@ -307,6 +546,36 @@ Description: File comparison utilities
  update, or "patch", a copy of the file.
 Homepage: http://www.gnu.org/software/diffutils/
 
+Package: dirmngr
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 1333
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Source: gnupg2
+Version: 2.2.12-1+deb10u2
+Replaces: gnupg2 (<< 2.1.10-2)
+Depends: adduser, gpgconf (= 2.2.12-1+deb10u2), lsb-base (>= 3.2-13), libassuan0 (>= 2.5.0), libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), libgnutls30 (>= 3.6.6), libgpg-error0 (>= 1.35), libksba8 (>= 1.3.4), libldap-2.4-2 (>= 2.4.7), libnpth0 (>= 0.90)
+Recommends: gnupg (= 2.2.12-1+deb10u2)
+Suggests: dbus-user-session, libpam-systemd, pinentry-gnome3, tor
+Breaks: gnupg2 (<< 2.1.10-2)
+Enhances: gpg, gpgsm, squid
+Description: GNU privacy guard - network certificate management service
+ dirmngr is a server for managing and downloading OpenPGP and X.509
+ certificates, as well as updates and status signals related to those
+ certificates.  For OpenPGP, this means pulling from the public
+ HKP/HKPS keyservers, or from LDAP servers.  For X.509 this includes
+ Certificate Revocation Lists (CRLs) and Online Certificate Status
+ Protocol updates (OCSP).  It is capable of using Tor for network
+ access.
+ .
+ dirmngr is used for network access by gpg, gpgsm, and dirmngr-client,
+ among other tools.  Unless this package is installed, the parts of
+ the GnuPG suite that try to interact with the network will fail.
+Homepage: https://www.gnupg.org/
+
 Package: dpkg
 Essential: yes
 Status: install ok installed
@@ -334,6 +603,31 @@ Description: Debian package management system
  For Debian package development tools, install dpkg-dev.
 Homepage: https://wiki.debian.org/Teams/Dpkg
 
+Package: dpkg-dev
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 2057
+Maintainer: Dpkg Developers <debian-dpkg@lists.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: dpkg
+Version: 1.19.8
+Depends: perl:any, libdpkg-perl (= 1.19.8), tar (>= 1.28-1), bzip2, xz-utils, patch (>= 2.7), make, binutils
+Recommends: build-essential, gcc | c-compiler, fakeroot, gnupg | gnupg2, gpgv | gpgv2, libalgorithm-merge-perl
+Suggests: debian-keyring
+Breaks: debhelper (<< 10.10.1~)
+Conffiles:
+ /etc/dpkg/shlibs.default 1a2b9d0a869e2aa885ae3621c557fb95
+ /etc/dpkg/shlibs.override 84b1e69080569cc5c613a50887af5200
+Description: Debian package development tools
+ This package provides the development tools (including dpkg-source)
+ required to unpack, build and upload Debian source packages.
+ .
+ Most Debian source packages will require additional tools to build;
+ for example, most packages need make and the C compiler gcc.
+Homepage: https://wiki.debian.org/Teams/Dpkg
+
 Package: e2fsprogs
 Status: install ok installed
 Priority: required
@@ -358,6 +652,27 @@ Description: ext2/ext3/ext4 file system utilities
  which can be used to scan for bad blocks on a disk or other storage device.
 Homepage: http://e2fsprogs.sourceforge.net
 Important: yes
+
+Package: fakeroot
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 213
+Maintainer: Clint Adams <clint@debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Version: 1.23-1
+Depends: libfakeroot (>= 1.23-1), libc6 (>= 2.15)
+Description: tool for simulating superuser privileges
+ fakeroot provides a fake "root environment" by means of LD_PRELOAD and
+ SysV IPC (or TCP) trickery. It puts wrappers around getuid(), chown(),
+ stat(), and other file-manipulation functions, so that unprivileged
+ users can (for instance) populate .deb archives with root-owned files;
+ various build tools use fakeroot for this by default.
+ .
+ This package contains fakeroot command and the daemon that remembers
+ fake ownership/permissions of files manipulated by fakeroot
+ processes.
 
 Package: fdisk
 Status: install ok installed
@@ -385,6 +700,23 @@ Description: collection of partitioning utilities
  The sfdisk utility is mostly for automation and scripting uses.
 Important: yes
 
+Package: file
+Status: install ok installed
+Priority: standard
+Section: utils
+Installed-Size: 98
+Maintainer: Christoph Biedl <debian.axhn@manchmal.in-ulm.de>
+Architecture: i386
+Multi-Arch: foreign
+Version: 1:5.35-4+deb10u2
+Depends: libc6 (>= 2.4), libmagic1 (= 1:5.35-4+deb10u2), zlib1g (>= 1:1.1.4)
+Description: Recognize the type of data in a file using "magic" numbers
+ The file command is "a file type guesser", a command-line tool that
+ tells you in words what kind of data a file contains.
+ .
+ This package contains the file program itself.
+Homepage: https://www.darwinsys.com/file/
+
 Package: findutils
 Essential: yes
 Status: install ok installed
@@ -405,6 +737,75 @@ Description: utilities for finding files--find, xargs
  been split off into a separate package.
 Homepage: https://savannah.gnu.org/projects/findutils/
 
+Package: g++
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 16
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Source: gcc-defaults (1.181)
+Version: 4:8.3.0-1
+Provides: c++-compiler, g++-i686-linux-gnu (= 4:8.3.0-1)
+Depends: cpp (= 4:8.3.0-1), gcc (= 4:8.3.0-1), g++-8 (>= 8.3.0-1~), gcc-8 (>= 8.3.0-1~)
+Suggests: g++-multilib
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ compiler.
+
+Package: g++-8
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 28770
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Source: gcc-8
+Version: 8.3.0-6
+Provides: c++-compiler, c++abi2-dev
+Depends: gcc-8-base (= 8.3.0-6), gcc-8 (= 8.3.0-6), libstdc++-8-dev (= 8.3.0-6), libc6 (>= 2.28), libgmp10 (>= 2:5.0.1~), libisl19 (>= 0.15), libmpc3, libmpfr6 (>= 3.1.3), zlib1g (>= 1:1.1.4)
+Suggests: g++-8-multilib, gcc-8-doc (>= 8), libstdc++6-8-dbg (>= 8.3.0-6)
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+Homepage: http://gcc.gnu.org/
+
+Package: gcc
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 55
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Source: gcc-defaults (1.181)
+Version: 4:8.3.0-1
+Provides: c-compiler, gcc-i686-linux-gnu (= 4:8.3.0-1)
+Depends: cpp (= 4:8.3.0-1), gcc-8 (>= 8.3.0-1~)
+Recommends: libc6-dev | libc-dev
+Suggests: gcc-multilib, make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb, gcc-doc
+Conflicts: gcc-doc (<< 1:2.95.3)
+Description: GNU C compiler
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C compiler.
+
+Package: gcc-8
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 30270
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Version: 8.3.0-6
+Replaces: cpp-8 (<< 7.1.1-8), gccgo-8 (<< 8.3.0-6)
+Provides: c-compiler
+Depends: cpp-8 (= 8.3.0-6), gcc-8-base (= 8.3.0-6), libcc1-0 (>= 8.3.0-6), binutils (>= 2.31.1), libgcc-8-dev (= 8.3.0-6), libc6 (>= 2.28), libgcc1 (>= 1:3.0), libgmp10 (>= 2:5.0.1~), libisl19 (>= 0.15), libmpc3, libmpfr6 (>= 3.1.3), libstdc++6 (>= 5), zlib1g (>= 1:1.1.4)
+Recommends: libc6-dev (>= 2.13-5)
+Suggests: gcc-8-multilib, gcc-8-doc (>= 8), gcc-8-locales (>= 8), libgcc1-dbg (>= 1:8.3.0-6), libgomp1-dbg (>= 8.3.0-6), libitm1-dbg (>= 8.3.0-6), libatomic1-dbg (>= 8.3.0-6), libasan5-dbg (>= 8.3.0-6), liblsan0-dbg (>= 8.3.0-6), libtsan0-dbg (>= 8.3.0-6), libubsan1-dbg (>= 8.3.0-6), libmpx2-dbg (>= 8.3.0-6), libquadmath0-dbg (>= 8.3.0-6)
+Description: GNU C compiler
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+Homepage: http://gcc.gnu.org/
+
 Package: gcc-8-base
 Status: install ok installed
 Priority: optional
@@ -420,6 +821,276 @@ Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
  contained in the GNU Compiler Collection (GCC).
 Homepage: http://gcc.gnu.org/
+
+Package: gir1.2-glib-2.0
+Status: install ok installed
+Priority: optional
+Section: introspection
+Installed-Size: 636
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gobject-introspection
+Version: 1.58.3-2
+Provides: gir1.2-gio-2.0 (= 1.58.3-2), gir1.2-girepository-2.0 (= 1.58.3-2), gir1.2-gmodule-2.0 (= 1.58.3-2), gir1.2-gobject-2.0 (= 1.58.3-2)
+Depends: libgirepository-1.0-1 (>= 1.45.4), libglib2.0-0 (>= 2.58.2)
+Description: Introspection data for GLib, GObject, Gio and GModule
+ GObject Introspection is a project for providing machine readable
+ introspection data of the API of C libraries. This introspection
+ data can be used in several different use cases, for example
+ automatic code generation for bindings, API verification and documentation
+ generation.
+ .
+ GObject Introspection contains tools to generate and handle the
+ introspection data.
+ .
+ This package contains the introspection data for the GLib, GObject,
+ GModule and Gio libraries.
+Homepage: https://wiki.gnome.org/GObjectIntrospection
+
+Package: gnupg
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 724
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: gnupg2
+Version: 2.2.12-1+deb10u2
+Replaces: gnupg2 (<< 2.1.11-7+exp1)
+Depends: dirmngr (<< 2.2.12-1+deb10u2.1~), dirmngr (>= 2.2.12-1+deb10u2), gnupg-l10n (= 2.2.12-1+deb10u2), gnupg-utils (<< 2.2.12-1+deb10u2.1~), gnupg-utils (>= 2.2.12-1+deb10u2), gpg (<< 2.2.12-1+deb10u2.1~), gpg (>= 2.2.12-1+deb10u2), gpg-agent (<< 2.2.12-1+deb10u2.1~), gpg-agent (>= 2.2.12-1+deb10u2), gpg-wks-client (<< 2.2.12-1+deb10u2.1~), gpg-wks-client (>= 2.2.12-1+deb10u2), gpg-wks-server (<< 2.2.12-1+deb10u2.1~), gpg-wks-server (>= 2.2.12-1+deb10u2), gpgsm (<< 2.2.12-1+deb10u2.1~), gpgsm (>= 2.2.12-1+deb10u2), gpgv (<< 2.2.12-1+deb10u2.1~), gpgv (>= 2.2.12-1+deb10u2)
+Suggests: parcimonie, xloadimage
+Breaks: debsig-verify (<< 0.15), dirmngr (<< 2.2.12-1+deb10u2), gnupg2 (<< 2.1.11-7+exp1), libgnupg-interface-perl (<< 0.52-3), libgnupg-perl (<= 0.19-1), libmail-gnupg-perl (<= 0.22-1), monkeysphere (<< 0.38~), php-crypt-gpg (<= 1.4.1-1), python-apt (<= 1.1.0~beta4), python-gnupg (<< 0.3.8-3), python3-apt (<= 1.1.0~beta4)
+Description: GNU privacy guard - a free PGP replacement
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package contains the full suite of GnuPG tools for cryptographic
+ communications and data storage.
+Homepage: https://www.gnupg.org/
+
+Package: gnupg-l10n
+Status: install ok installed
+Priority: optional
+Section: localization
+Installed-Size: 4602
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: gnupg2
+Version: 2.2.12-1+deb10u2
+Replaces: gnupg (<< 2.1.14-2~), gnupg2 (<< 2.1.14-2~)
+Breaks: gnupg (<< 2.1.14-2~), gnupg2 (<< 2.1.14-2~)
+Enhances: dirmngr, gpg, gpg-agent
+Description: GNU privacy guard - localization files
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC 4880.
+ .
+ This package contains the translation files for the use of GnuPG in
+ non-English locales.
+Homepage: https://www.gnupg.org/
+
+Package: gnupg-utils
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 2087
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Source: gnupg2
+Version: 2.2.12-1+deb10u2
+Replaces: gnupg (<< 2.1.21-4), gnupg-agent (<< 2.1.21-4)
+Depends: libassuan0 (>= 2.5.0), libbz2-1.0, libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), libgpg-error0 (>= 1.35), libksba8 (>= 1.3.4), libreadline7 (>= 6.0), zlib1g (>= 1:1.1.4)
+Recommends: gpg, gpg-agent, gpgconf, gpgsm
+Breaks: gnupg (<< 2.1.21-4), gnupg-agent (<< 2.1.21-4)
+Description: GNU privacy guard - utility programs
+ GnuPG is GNU's tool for secure communication and data storage.
+ .
+ This package contains several useful utilities for manipulating
+ OpenPGP data and other related cryptographic elements.  It includes:
+ .
+  * addgnupghome -- create .gnupg home directories
+  * applygnupgdefaults -- run gpgconf --apply-defaults for all users
+  * gpgcompose -- an experimental tool for constructing arbitrary
+                  sequences of OpenPGP packets (e.g. for testing)
+  * gpgparsemail -- parse an e-mail message into annotated format
+  * gpgsplit -- split a sequence of OpenPGP packets into files
+  * gpgtar -- encrypt or sign files in an archive
+  * kbxutil -- list, export, import Keybox data
+  * lspgpot -- convert PGP ownertrust values to GnuPG
+  * migrate-pubring-from-classic-gpg -- use only "modern" formats
+  * symcryptrun -- use simple symmetric encryption tool in GnuPG framework
+  * watchgnupg -- watch socket-based logs
+Homepage: https://www.gnupg.org/
+
+Package: gpg
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 1645
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Source: gnupg2
+Version: 2.2.12-1+deb10u2
+Replaces: gnupg (<< 2.1.21-4)
+Depends: gpgconf (= 2.2.12-1+deb10u2), libassuan0 (>= 2.5.0), libbz2-1.0, libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), libgpg-error0 (>= 1.35), libreadline7 (>= 6.0), libsqlite3-0 (>= 3.7.15), zlib1g (>= 1:1.1.4)
+Recommends: gnupg (= 2.2.12-1+deb10u2)
+Breaks: gnupg (<< 2.1.21-4)
+Description: GNU Privacy Guard -- minimalist public key operations
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package contains /usr/bin/gpg itself, and is useful on its own
+ only for public key operations (encryption, signature verification,
+ listing OpenPGP certificates, etc).  If you want full capabilities
+ (including secret key operations, network access, etc), please
+ install the "gnupg" package, which pulls in the full suite of tools.
+Homepage: https://www.gnupg.org/
+
+Package: gpg-agent
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 1324
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Source: gnupg2
+Version: 2.2.12-1+deb10u2
+Replaces: gnupg-agent (<< 2.1.21-4)
+Provides: gnupg-agent
+Depends: gpgconf (= 2.2.12-1+deb10u2), pinentry-curses | pinentry, libassuan0 (>= 2.5.1), libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), libgpg-error0 (>= 1.35), libnpth0 (>= 0.90)
+Recommends: gnupg (= 2.2.12-1+deb10u2)
+Suggests: dbus-user-session, libpam-systemd, pinentry-gnome3, scdaemon
+Breaks: gnupg-agent (<< 2.1.21-4)
+Conffiles:
+ /etc/X11/Xsession.d/90gpg-agent fbb9ce5e8e4ba5727090f0aa51b61a82
+ /etc/logcheck/ignore.d.server/gpg-agent 040d545c7f33c0581fd2ae198dab1d7a
+Description: GNU privacy guard - cryptographic agent
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package contains the agent program gpg-agent which handles all
+ secret key material for OpenPGP and S/MIME use.  The agent also
+ provides a passphrase cache, which is used by pre-2.1 versions of
+ GnuPG for OpenPGP operations.  Without this package, trying to do
+ secret-key operations with any part of the modern GnuPG suite will
+ fail.
+Homepage: https://www.gnupg.org/
+
+Package: gpg-wks-client
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 652
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Source: gnupg2
+Version: 2.2.12-1+deb10u2
+Depends: dirmngr (= 2.2.12-1+deb10u2), gpg (= 2.2.12-1+deb10u2), gpg-agent (= 2.2.12-1+deb10u2), libassuan0 (>= 2.5.0), libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), libgpg-error0 (>= 1.35)
+Recommends: gnupg (= 2.2.12-1+deb10u2)
+Description: GNU privacy guard - Web Key Service client
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package provides the GnuPG client for the Web Key Service
+ protocol.
+ .
+ A Web Key Service is a service that allows users to upload keys per
+ mail to be verified over https as described in
+ https://tools.ietf.org/html/draft-koch-openpgp-webkey-service
+ .
+ For more information see: https://wiki.gnupg.org/WKS
+Homepage: https://www.gnupg.org/
+
+Package: gpg-wks-server
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 627
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Source: gnupg2
+Version: 2.2.12-1+deb10u2
+Depends: gpg (= 2.2.12-1+deb10u2), gpg-agent (= 2.2.12-1+deb10u2), libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), libgpg-error0 (>= 1.35)
+Recommends: gnupg (= 2.2.12-1+deb10u2)
+Description: GNU privacy guard - Web Key Service server
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package provides the GnuPG server for the Web Key Service
+ protocol.
+ .
+ A Web Key Service is a service that allows users to upload keys per
+ mail to be verified over https as described in
+ https://tools.ietf.org/html/draft-koch-openpgp-webkey-service
+ .
+ For more information see: https://wiki.gnupg.org/WKS
+Homepage: https://www.gnupg.org/
+
+Package: gpgconf
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 758
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Source: gnupg2
+Version: 2.2.12-1+deb10u2
+Replaces: gnupg (<< 2.1.21-4), gnupg-agent (<< 2.1.21-4)
+Depends: libassuan0 (>= 2.5.0), libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), libgpg-error0 (>= 1.35), libreadline7 (>= 6.0)
+Breaks: gnupg (<< 2.1.21-4), gnupg-agent (<< 2.1.21-4)
+Description: GNU privacy guard - core configuration utilities
+ GnuPG is GNU's tool for secure communication and data storage.
+ .
+ This package contains core utilities used by different tools in the
+ suite offered by GnuPG.  It can be used to programmatically edit
+ config files for tools in the GnuPG suite, to launch or terminate
+ per-user daemons (if installed), etc.
+Homepage: https://www.gnupg.org/
+
+Package: gpgsm
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 976
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Source: gnupg2
+Version: 2.2.12-1+deb10u2
+Replaces: gnupg2 (<< 2.1.10-2)
+Depends: gpgconf (= 2.2.12-1+deb10u2), libassuan0 (>= 2.5.0), libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), libgpg-error0 (>= 1.35), libksba8 (>= 1.3.4), libreadline7 (>= 6.0)
+Recommends: gnupg (= 2.2.12-1+deb10u2)
+Breaks: gnupg2 (<< 2.1.10-2)
+Description: GNU privacy guard - S/MIME version
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package contains the gpgsm program. gpgsm is a tool to provide
+ digital encryption and signing services on X.509 certificates and the
+ CMS protocol. gpgsm includes complete certificate management.
+Homepage: https://www.gnupg.org/
 
 Package: gpgv
 Status: install ok installed
@@ -609,6 +1280,81 @@ Description: access control list - shared library
  draft standard 17 functions for manipulating access control lists.
 Homepage: https://savannah.nongnu.org/projects/acl/
 
+Package: libalgorithm-diff-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 107
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 1.19.03-2
+Depends: perl
+Recommends: libalgorithm-diff-xs-perl
+Description: module to find differences between files
+ Algorithm::Diff is a Perl module that allows users to analyze text based on a
+ Longest Common Subsequence (LCS) algorithm. It can compare two files and find
+ the differences between them, which can produce the same information as the
+ common Unix tool 'diff'.
+ .
+ There is an XS-optimized implementation of the core loop, which accelerates
+ some types of diff output (see libalgorithm-diff-xs-perl).
+Homepage: https://metacpan.org/release/Algorithm-Diff
+
+Package: libalgorithm-diff-xs-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 47
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Source: libalgorithm-diff-xs-perl (0.04-5)
+Version: 0.04-5+b1
+Depends: perl (>= 5.28.0-3), perlapi-5.28.0, libc6 (>= 2.4), libalgorithm-diff-perl
+Description: module to find differences between files (XS accelerated)
+ Algorithm::Diff::XS is a Perl diff utility module based on Joe Schaefer's
+ excellent but not very well-known Algorithm::LCS module, with a drop-in
+ interface identical to Algorithm::Diff.
+ .
+ Note that only the LCSidx function is optimized in XS at the moment, which
+ means only compact_diff will get significantly faster for large data sets,
+ while diff and sdiff will run in identical speed as Algorithm::Diff.
+Homepage: https://metacpan.org/release/Algorithm-Diff-XS
+
+Package: libalgorithm-merge-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 43
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 0.08-3
+Depends: perl, libalgorithm-diff-perl
+Description: Perl module for three-way merge of textual data
+ Algorithm::Merge provides three-way merge and diff functions, complementing
+ the functionality offered by Algorithm::Diff (libalgorithm-diff-perl). Given
+ three sets of items, known as the original, left and right, this module can
+ take a three-way difference or merge them. Taking a difference provides an
+ array reference that is very similar to the behaviour of Algorithm::Diff. One
+ can also implement custom conflict resolution using the CONFLICT callback.
+Homepage: https://metacpan.org/release/Algorithm-Merge
+
+Package: libapparmor1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 163
+Maintainer: Debian AppArmor Team <pkg-apparmor-team@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: apparmor
+Version: 2.13.2-10
+Depends: libc6 (>= 2.17)
+Description: changehat AppArmor library
+ libapparmor1 provides the shared library used for making use
+ of the AppArmor profile and changehat functionality, as well as common
+ log parsing routines.
+Homepage: http://apparmor.net/
+
 Package: libapt-pkg5.0
 Status: install ok installed
 Priority: optional
@@ -638,6 +1384,55 @@ Description: package management runtime library
   * providing different transports to retrieve data over cdrom, ftp,
     http(s), rsh as well as an interface to add more transports like
     tor+http(s) (apt-transport-tor).
+
+Package: libasan5
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 1605
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Depends: gcc-8-base (= 8.3.0-6), libc6 (>= 2.28), libgcc1 (>= 1:3.3), libstdc++6 (>= 4.1.1)
+Description: AddressSanitizer -- a fast memory error detector
+ AddressSanitizer (ASan) is a fast memory error detector.  It finds
+ use-after-free and {heap,stack,global}-buffer overflow bugs in C/C++ programs.
+Homepage: http://gcc.gnu.org/
+
+Package: libassuan0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 124
+Maintainer: Debian GnuPG-Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: libassuan
+Version: 2.5.2-1
+Depends: libc6 (>= 2.4), libgpg-error0 (>= 1.14)
+Description: IPC library for the GnuPG components
+ Libassuan is a small library implementing the so-called "Assuan
+ protocol". This protocol is used for IPC between most newer GnuPG
+ components. Both server and client side functions are provided.
+Homepage: https://www.gnupg.org/related_software/libassuan/index.html
+
+Package: libatomic1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 44
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Depends: gcc-8-base (= 8.3.0-6), libc6 (>= 2.3.6-6~)
+Description: support library providing __atomic built-in functions
+ library providing __atomic built-in functions. When an atomic call cannot
+ be turned into lock-free instructions, GCC will make calls into this library.
+Homepage: http://gcc.gnu.org/
 
 Package: libattr1
 Status: install ok installed
@@ -696,6 +1491,23 @@ Description: Dynamic library for security auditing
  applications to use the audit framework. It is used to monitor systems for
  security related events.
 Homepage: https://people.redhat.com/sgrubb/audit/
+
+Package: libbinutils
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 2353
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: binutils
+Version: 2.31.1-16
+Replaces: binutils (<< 2.29-6)
+Depends: libc6 (>= 2.28), zlib1g (>= 1:1.2.0), binutils-common (= 2.31.1-16)
+Breaks: binutils (<< 2.29-6)
+Description: GNU binary utilities (private shared library)
+ This package includes the private shared libraries libbfd and libopcodes.
+Homepage: https://www.gnu.org/software/binutils/
 
 Package: libblkid1
 Status: install ok installed
@@ -771,16 +1583,33 @@ Description: GNU C Library: Binaries
   * tzselect, zdump, zic: select/dump/compile time zones
 Homepage: https://www.gnu.org/software/libc/libc.html
 
+Package: libc-dev-bin
+Status: install ok installed
+Priority: optional
+Section: libdevel
+Installed-Size: 413
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Source: glibc
+Version: 2.28-10+deb10u4
+Depends: libc6 (>> 2.28), libc6 (<< 2.29)
+Recommends: manpages, manpages-dev
+Description: GNU C Library: Development binaries
+ This package contains utility programs related to the GNU C Library
+ development package.
+Homepage: https://www.gnu.org/software/libc/libc.html
+
 Package: libc6
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 11539
+Installed-Size: 11540
 Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
 Architecture: i386
 Multi-Arch: same
 Source: glibc
-Version: 2.28-10+deb10u3
+Version: 2.28-10+deb10u4
 Replaces: libc6-i386, libc6-i686
 Provides: libc6-i686
 Depends: libgcc1
@@ -794,6 +1623,26 @@ Description: GNU C Library: Shared libraries
  Contains the standard libraries that are used by nearly all programs on
  the system. This package includes shared versions of the standard C library
  and the standard math library, as well as many others.
+Homepage: https://www.gnu.org/software/libc/libc.html
+
+Package: libc6-dev
+Status: install ok installed
+Priority: optional
+Section: libdevel
+Installed-Size: 33621
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: glibc
+Version: 2.28-10+deb10u4
+Provides: libc-dev
+Depends: libc6 (= 2.28-10+deb10u4), libc-dev-bin (= 2.28-10+deb10u4), linux-libc-dev
+Suggests: glibc-doc, manpages-dev
+Breaks: binutils (<< 2.26), binutils-gold (<< 2.20.1-11), cmake (<< 2.8.4+dfsg.1-5), gcc-4.4 (<< 4.4.6-4), gcc-4.5 (<< 4.5.3-2), gcc-4.6 (<< 4.6.0-12), libhwloc-dev (<< 1.2-3), libjna-java (<< 3.2.7-4), liblouis-dev (<< 2.3.0-2), liblouisxml-dev (<< 2.4.0-2), libperl5.26 (<< 5.26.1-3), make (<< 3.81-8.1), pkg-config (<< 0.26-1)
+Conflicts: libc0.1-dev, libc0.3-dev, libc6.1-dev
+Description: GNU C Library: Development Libraries and Header Files
+ Contains the symlinks, headers, and object files needed to compile
+ and link programs which use the standard C library.
 Homepage: https://www.gnu.org/software/libc/libc.html
 
 Package: libcap-ng0
@@ -859,6 +1708,21 @@ Description: POSIX 1003.1e capabilities (utilities)
  This package contains additional utilities.
 Homepage: https://sites.google.com/site/fullycapable/
 
+Package: libcc1-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 155
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Depends: gcc-8-base (= 8.3.0-6), libc6 (>= 2.3), libgcc1 (>= 1:3.0), libstdc++6 (>= 5.2)
+Description: GCC cc1 plugin for GDB
+ libcc1 is a plugin for GDB.
+Homepage: http://gcc.gnu.org/
+
 Package: libcom-err2
 Status: install ok installed
 Priority: optional
@@ -895,6 +1759,35 @@ Description: Berkeley v5.3 Database Libraries [runtime]
  database library.
 Homepage: http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html
 
+Package: libdbus-1-3
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 525
+Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: dbus
+Version: 1.12.28-0+deb10u1
+Depends: libc6 (>= 2.28), libsystemd0
+Recommends: dbus
+Breaks: dbus (<< 1.9.16-1~)
+Description: simple interprocess messaging system (library)
+ D-Bus is a message bus, used for sending messages between applications.
+ Conceptually, it fits somewhere in between raw sockets and CORBA in
+ terms of complexity.
+ .
+ D-Bus supports broadcast messages, asynchronous messages (thus
+ decreasing latency), authentication, and more. It is designed to be
+ low-overhead; messages are sent using a binary protocol, not using
+ XML. D-Bus also supports a method call mapping for its messages, but
+ it is not required; this makes using the system quite simple.
+ .
+ It comes with several bindings, including GLib, Python, Qt and Java.
+ .
+ The daemon can be found in the dbus package.
+Homepage: http://dbus.freedesktop.org/
+
 Package: libdebconfclient0
 Status: install ok installed
 Priority: optional
@@ -912,6 +1805,71 @@ Description: Debian Configuration Management System (C-implementation library)
  installed. cdebconf is a reimplementation of the original debconf in C.
  .
  This library allows C programs to interface with cdebconf.
+
+Package: libdpkg-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 2433
+Maintainer: Dpkg Developers <debian-dpkg@lists.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: dpkg
+Version: 1.19.8
+Depends: perl:any, dpkg (>= 1.18.11)
+Recommends: libfile-fcntllock-perl, liblocale-gettext-perl, bzip2, xz-utils
+Suggests: debian-keyring, gnupg | gnupg2, gpgv | gpgv2, gcc | c-compiler, binutils, patch, sensible-utils, git, bzr
+Breaks: dgit (<< 3.13~), patch (<< 2.7), pkg-kde-tools (<< 0.15.28~)
+Description: Dpkg perl modules
+ This package provides the perl modules used by the scripts
+ in dpkg-dev. They cover a wide range of functionality. Among them
+ there are the following public modules:
+ .
+  - Dpkg: core variables
+  - Dpkg::Arch: architecture handling functions
+  - Dpkg::Build::Info: build information functions
+  - Dpkg::BuildFlags: set, modify and query compilation build flags
+  - Dpkg::BuildOptions: parse and manipulate DEB_BUILD_OPTIONS
+  - Dpkg::BuildProfiles: parse and manipulate build profiles
+  - Dpkg::Changelog: parse changelogs
+  - Dpkg::Changelog::Entry: represents a changelog entry
+  - Dpkg::Changelog::Parse: generic changelog parser for dpkg-parsechangelog
+  - Dpkg::Checksums: generate and parse checksums
+  - Dpkg::Compression: simple database of available compression methods
+  - Dpkg::Compression::FileHandle: transparently (de)compress files
+  - Dpkg::Compression::Process: wrapper around compression tools
+  - Dpkg::Conf: parse dpkg configuration files
+  - Dpkg::Control: parse and manipulate Debian control information
+    (.dsc, .changes, Packages/Sources entries, etc.)
+  - Dpkg::Control::Changelog: represent fields output by dpkg-parsechangelog
+  - Dpkg::Control::Fields: manage (list of known) control fields
+  - Dpkg::Control::Hash: parse and manipulate a block of RFC822-like fields
+  - Dpkg::Control::Info: parse files like debian/control
+  - Dpkg::Control::Tests: parse files like debian/tests/control
+  - Dpkg::Control::Tests::Entry: represents a debian/tests/control stanza
+  - Dpkg::Deps: parse and manipulate dependencies
+  - Dpkg::Deps::Simple: represents a single dependency statement
+  - Dpkg::Deps::Multiple: base module to represent multiple dependencies
+  - Dpkg::Deps::Union: list of unrelated dependencies
+  - Dpkg::Deps::AND: list of AND dependencies
+  - Dpkg::Deps::OR: list of OR dependencies
+  - Dpkg::Deps::KnownFacts: list of installed and virtual packages
+  - Dpkg::Exit: push, pop and run exit handlers
+  - Dpkg::Gettext: wrapper around Locale::gettext
+  - Dpkg::IPC: spawn sub-processes and feed/retrieve data
+  - Dpkg::Index: collections of Dpkg::Control (Packages/Sources files for
+    example)
+  - Dpkg::Interface::Storable: base object serializer
+  - Dpkg::Path: common path handling functions
+  - Dpkg::Source::Format: manipulate debian/source/format files
+  - Dpkg::Source::Package: extract Debian source packages
+  - Dpkg::Substvars: substitute variables in strings
+  - Dpkg::Vendor: identify current distribution vendor
+  - Dpkg::Version: parse and manipulate Debian package versions
+ .
+ All the packages listed in Suggests or Recommends are used by some of the
+ modules.
+Homepage: https://wiki.debian.org/Teams/Dpkg
 
 Package: libelf1
 Status: install ok installed
@@ -932,6 +1890,48 @@ Description: library to read and write ELF files
  .
  This library is part of elfutils.
 Homepage: https://sourceware.org/elfutils/
+
+Package: libexpat1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 510
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: expat
+Version: 2.2.6-2+deb10u7
+Depends: libc6 (>= 2.25)
+Conflicts: wink (<= 1.5.1060-4)
+Description: XML parsing C library - runtime library
+ This package contains the runtime, shared library of expat, the C
+ library for parsing XML. Expat is a stream-oriented parser in
+ which an application registers handlers for things the parser
+ might find in the XML document (like start tags).
+Homepage: https://libexpat.github.io/
+
+Package: libexpat1-dev
+Status: install ok installed
+Priority: optional
+Section: libdevel
+Installed-Size: 1042
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: expat
+Version: 2.2.6-2+deb10u7
+Provides: libexpat-dev
+Depends: libexpat1 (= 2.2.6-2+deb10u7), libc6-dev | libc-dev
+Conflicts: libexpat-dev
+Description: XML parsing C library - development kit
+ This package contains the header file and development libraries of
+ expat, the C library for parsing XML.  Expat is a stream oriented XML
+ parser.  This means that you register handlers with the parser prior
+ to starting the parse.  These handlers are called when the parser
+ discovers the associated structures in the document being parsed.  A
+ start tag is an example of the kind of structures for which you may
+ register handlers.
+Homepage: https://libexpat.github.io/
 
 Package: libext2fs2
 Status: install ok installed
@@ -957,6 +1957,30 @@ Description: ext2/ext3/ext4 file system libraries
  include e2fsck, mke2fs, and tune2fs. Programs that use libe2p include
  dumpe2fs, chattr, and lsattr.
 Homepage: http://e2fsprogs.sourceforge.net
+
+Package: libfakeroot
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 147
+Maintainer: Clint Adams <clint@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: fakeroot
+Version: 1.23-1
+Replaces: fakeroot (<< 1.20-2~)
+Depends: libc6 (>= 2.4)
+Breaks: fakeroot (<< 1.20-2~)
+Conffiles:
+ /etc/ld.so.conf.d/fakeroot-i386-linux-gnu.conf 10df65f55e8e187eb4929d0d29512f73
+Description: tool for simulating superuser privileges - shared libraries
+ fakeroot provides a fake "root environment" by means of LD_PRELOAD and
+ SysV IPC (or TCP) trickery. It puts wrappers around getuid(), chown(),
+ stat(), and other file-manipulation functions, so that unprivileged
+ users can (for instance) populate .deb archives with root-owned files;
+ various build tools use fakeroot for this by default.
+ .
+ This package contains the LD_PRELOAD libraries.
 
 Package: libfdisk1
 Status: install ok installed
@@ -989,6 +2013,44 @@ Description: Foreign Function Interface library runtime
  allows code written in one language to call code written in another
  language.
 Homepage: https://sourceware.org/libffi/
+
+Package: libfile-fcntllock-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 129
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Source: libfile-fcntllock-perl (0.22-3)
+Version: 0.22-3+b5
+Depends: perl (>= 5.28.0-3), perlapi-5.28.0, libc6 (>= 2.4)
+Suggests: gcc | c-compiler
+Description: Perl module for file locking with fcntl(2)
+ File::FcntlLock is a Perl module to do file locking in an object oriented
+ fashion using the fcntl(2) system call. This allows locks on parts of a file
+ as well as on the whole file and overcomes some known problems with flock(2),
+ on which Perl's flock() function is based.
+ .
+ Furthermore due to its design it supports reliable locking over NFS.
+Homepage: https://metacpan.org/release/File-FcntlLock
+
+Package: libgcc-8-dev
+Status: install ok installed
+Priority: optional
+Section: libdevel
+Installed-Size: 9868
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Replaces: gccgo-8 (<< 8.3.0-6)
+Depends: gcc-8-base (= 8.3.0-6), libgcc1 (>= 1:8.3.0-6), libgomp1 (>= 8.3.0-6), libitm1 (>= 8.3.0-6), libatomic1 (>= 8.3.0-6), libasan5 (>= 8.3.0-6), libubsan1 (>= 8.3.0-6), libmpx2 (>= 8.3.0-6), libquadmath0 (>= 8.3.0-6)
+Recommends: libc6-dev (>= 2.13-5)
+Description: GCC support library (development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+Homepage: http://gcc.gnu.org/
 
 Package: libgcc1
 Status: install ok installed
@@ -1030,6 +2092,114 @@ Description: LGPL Crypto library - runtime library
  SHAKE128, SHAKE256, Tiger, Whirlpool, DSA, DSA2, ElGamal, RSA, ECC
  (Curve25519, sec256k1, GOST R 34.10-2001 and GOST R 34.10-2012, etc.)
 Homepage: https://directory.fsf.org/project/libgcrypt/
+
+Package: libgdbm-compat4
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 66
+Maintainer: Dmitry Bogatov <KAction@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gdbm
+Version: 1.18.1-4
+Depends: libc6 (>= 2.7), libgdbm6 (>= 1.16)
+Description: GNU dbm database routines (legacy support runtime version) 
+ GNU dbm ('gdbm') is a library of database functions that use extendible
+ hashing and works similarly to the standard UNIX 'dbm' functions.
+ .
+ The basic use of 'gdbm' is to store key/data pairs in a data file, thus
+ providing a persistent version of the 'dictionary' Abstract Data Type
+ ('hash' to perl programmers).
+ .
+ This package includes library files, required to run old programs,
+ that use legacy 'dbm' interface. For new programs, please use modern
+ interface, provided by libgdbm6 and libgdbm-dev.
+Homepage: https://gnu.org/software/gdbm
+
+Package: libgdbm6
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 124
+Maintainer: Dmitry Bogatov <KAction@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gdbm
+Version: 1.18.1-4
+Depends: libc6 (>= 2.28)
+Suggests: gdbm-l10n (= 1.18.1-4)
+Description: GNU dbm database routines (runtime version) 
+ GNU dbm ('gdbm') is a library of database functions that use extendible
+ hashing and works similarly to the standard UNIX 'dbm' functions.
+ .
+ The basic use of 'gdbm' is to store key/data pairs in a data file, thus
+ providing a persistent version of the 'dictionary' Abstract Data Type
+ ('hash' to perl programmers).
+Homepage: https://gnu.org/software/gdbm
+
+Package: libgirepository-1.0-1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 285
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gobject-introspection
+Version: 1.58.3-2
+Depends: libc6 (>= 2.4), libffi6 (>= 3.0.4), libglib2.0-0 (>= 2.58.0)
+Description: Library for handling GObject introspection data (runtime library)
+ GObject Introspection is a project for providing machine readable
+ introspection data of the API of C libraries. This introspection
+ data can be used in several different use cases, for example
+ automatic code generation for bindings, API verification and documentation
+ generation.
+ .
+ GObject Introspection contains tools to generate and handle the
+ introspection data.
+ .
+ This package contains a C library for handling the introspection data.
+Homepage: https://wiki.gnome.org/GObjectIntrospection
+
+Package: libglib2.0-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 4218
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: glib2.0
+Version: 2.58.3-2+deb10u6
+Depends: libc6 (>= 2.28), libffi6 (>= 3.0.4), libmount1 (>= 2.28), libpcre3, libselinux1 (>= 1.32), zlib1g (>= 1:1.2.2)
+Recommends: libglib2.0-data, shared-mime-info, xdg-user-dirs
+Description: GLib library of C routines
+ GLib is a library containing many useful C routines for things such
+ as trees, hashes, lists, and strings.  It is a useful general-purpose
+ C library used by projects such as GTK+, GIMP, and GNOME.
+ .
+ This package contains the shared libraries.
+Homepage: http://www.gtk.org/
+
+Package: libglib2.0-data
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 8468
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: glib2.0
+Version: 2.58.3-2+deb10u6
+Description: Common files for GLib library
+ GLib is a library containing many useful C routines for things such
+ as trees, hashes, lists, and strings.  It is a useful general-purpose
+ C library used by projects such as GTK+, GIMP, and GNOME.
+ .
+ This package is needed for the runtime libraries to display messages in
+ languages other than English.
+Homepage: http://www.gtk.org/
 
 Package: libgmp10
 Status: install ok installed
@@ -1079,6 +2249,23 @@ Description: GNU TLS library - main runtime library
  .
  This package contains the main runtime library.
 Homepage: https://www.gnutls.org/
+
+Package: libgomp1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 214
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Depends: gcc-8-base (= 8.3.0-6), libc6 (>= 2.17)
+Breaks: gcc-4.3 (<< 4.3.6-1), gcc-4.4 (<< 4.4.6-4), gcc-4.5 (<< 4.5.3-2)
+Description: GCC OpenMP (GOMP) support library
+ GOMP is an implementation of OpenMP for the C, C++, and Fortran compilers
+ in the GNU Compiler Collection.
+Homepage: http://gcc.gnu.org/
 
 Package: libgpg-error0
 Status: install ok installed
@@ -1130,6 +2317,25 @@ Description: low level cryptographic library (public-key cryptos)
  their large integer computations.
 Homepage: http://www.lysator.liu.se/~nisse/nettle/
 
+Package: libicu63
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 31867
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: icu
+Version: 63.1-6+deb10u3
+Replaces: libiculx63 (<< 63.1-5)
+Depends: libc6 (>= 2.7), libgcc1 (>= 1:7), libstdc++6 (>= 5.2)
+Breaks: libiculx63 (<< 63.1-5), openttd (<< 1.8.0-2~)
+Description: International Components for Unicode
+ ICU is a C++ and C library that provides robust and full-featured
+ Unicode and locale support.  This package contains the runtime
+ libraries for ICU.
+Homepage: http://www.icu-project.org
+
 Package: libidn2-0
 Status: install ok installed
 Priority: optional
@@ -1147,6 +2353,126 @@ Description: Internationalized domain names (IDNA2008/TR46) library
  .
  This package contains runtime libraries.
 Homepage: https://www.gnu.org/software/libidn/#libidn2
+
+Package: libisl19
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 2313
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: isl
+Version: 0.20-2
+Replaces: libisl-dbg (<< 0.19)
+Depends: libc6 (>= 2.4), libgmp10
+Breaks: libisl-dbg (<< 0.19)
+Description: manipulating sets and relations of integer points bounded by linear constraints
+ isl is a library for manipulating sets and relations of integer points
+ bounded by linear constraints. Supported operations on sets include
+ intersection, union, set difference, emptiness check, convex hull,
+ (integer) affine hull, integer projection, and computing the lexicographic
+ minimum using parametric integer programming. It also includes an ILP solver
+ based on generalized basis reduction.
+ .
+ This package contains the runtime library.
+Homepage: http://isl.gforge.inria.fr/
+
+Package: libitm1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 126
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Depends: gcc-8-base (= 8.3.0-6), libc6 (>= 2.3.6-6~)
+Description: GNU Transactional Memory Library
+ GNU Transactional Memory Library (libitm) provides transaction support for
+ accesses to the memory of a process, enabling easy-to-use synchronization of
+ accesses to shared memory by several threads.
+Homepage: http://gcc.gnu.org/
+
+Package: libksba8
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 291
+Maintainer: Debian GnuTLS Maintainers <pkg-gnutls-maint@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: libksba
+Version: 1.3.5-2+deb10u2
+Depends: libc6 (>= 2.4), libgpg-error0 (>= 1.14)
+Description: X.509 and CMS support library
+ KSBA (pronounced Kasbah) is a library to make X.509 certificates as
+ well as the CMS easily accessible by other applications.  Both
+ specifications are building blocks of S/MIME and TLS.
+ .
+ KSBA provides these subsystems: ASN.1 Parser, BER Decoder, BER
+ Encoder, Certificate Handling and CMS Handling.
+ .
+ This package contains the runtime library files.
+Homepage: http://www.gnupg.org/related_software/libksba/
+
+Package: libldap-2.4-2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 560
+Maintainer: Debian OpenLDAP Maintainers <pkg-openldap-devel@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: openldap
+Version: 2.4.47+dfsg-3+deb10u7
+Replaces: libldap-2.3-0, libldap2
+Depends: libc6 (>= 2.28), libgnutls30 (>= 3.6.6), libsasl2-2 (>= 2.1.27+dfsg), libldap-common
+Conflicts: ldap-utils (<= 2.1.23-1)
+Description: OpenLDAP libraries
+ These are the run-time libraries for the OpenLDAP (Lightweight Directory
+ Access Protocol) servers and clients.
+Homepage: http://www.openldap.org/
+
+Package: libldap-common
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 113
+Maintainer: Debian OpenLDAP Maintainers <pkg-openldap-devel@lists.alioth.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: openldap
+Version: 2.4.47+dfsg-3+deb10u7
+Replaces: libldap-2.4-2 (<< 2.4.44+dfsg-1)
+Conffiles:
+ /etc/ldap/ldap.conf 0b3f4d19d88498314478273ce10b0a70
+Description: OpenLDAP common files for libraries
+ These are common files for the run-time libraries for the OpenLDAP
+ (Lightweight Directory Access Protocol) servers and clients.
+Homepage: http://www.openldap.org/
+
+Package: liblocale-gettext-perl
+Status: install ok installed
+Priority: required
+Section: perl
+Installed-Size: 59
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Source: liblocale-gettext-perl (1.07-3)
+Version: 1.07-3+b4
+Depends: libc6 (>= 2.2)
+Pre-Depends: perl-base (>= 5.28.0-3), perlapi-5.28.0
+Description: module using libc functions for internationalization in Perl
+ The Locale::gettext module permits access from perl to the gettext() family of
+ functions for retrieving message strings from databases constructed
+ to internationalize software.
+ .
+ It provides gettext(), dgettext(), dcgettext(), textdomain(),
+ bindtextdomain(), bind_textdomain_codeset(), ngettext(), dcngettext()
+ and dngettext().
+Homepage: https://metacpan.org/release/gettext
 
 Package: liblz4-1
 Status: install ok installed
@@ -1191,6 +2517,45 @@ Description: XZ-format compression library
  streams and the older LZMA format used by lzma. (For 7-Zip's related
  format, use the p7zip package instead.)
 Homepage: https://tukaani.org/xz/
+
+Package: libmagic-mgc
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 5300
+Maintainer: Christoph Biedl <debian.axhn@manchmal.in-ulm.de>
+Architecture: i386
+Multi-Arch: foreign
+Source: file
+Version: 1:5.35-4+deb10u2
+Replaces: libmagic1 (<< 1:5.28-4~)
+Breaks: libmagic1 (<< 1:5.28-4~)
+Description: File type determination library using "magic" numbers (compiled magic file)
+ This package provides the compiled magic file "magic.mgc". It has
+ been separated from libmagic1 in order to meet the multiarch
+ requirements without breaking applications that expect this file
+ at its absolute path.
+Homepage: https://www.darwinsys.com/file/
+
+Package: libmagic1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 244
+Maintainer: Christoph Biedl <debian.axhn@manchmal.in-ulm.de>
+Architecture: i386
+Multi-Arch: same
+Source: file
+Version: 1:5.35-4+deb10u2
+Depends: libc6 (>= 2.15), zlib1g (>= 1:1.1.4), libmagic-mgc (= 1:5.35-4+deb10u2)
+Suggests: file
+Conffiles:
+ /etc/magic 272913026300e7ae9b5e2d51f138e674
+ /etc/magic.mime 272913026300e7ae9b5e2d51f138e674
+Description: Recognize the type of data in a file using "magic" numbers - library
+ This library can be used to classify files according to magic number
+ tests. It implements the core functionality of the file command.
+Homepage: https://www.darwinsys.com/file/
 
 Package: libmnl0
 Status: install ok installed
@@ -1246,6 +2611,87 @@ Depends: libblkid1 (>= 2.17.2), libc6 (>= 2.28), libselinux1 (>= 2.6-3~)
 Description: device mounting library
  This device mounting library is used by mount and umount helpers.
 
+Package: libmpc3
+Status: install ok installed
+Priority: extra
+Section: libs
+Installed-Size: 133
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: mpclib3
+Version: 1.1.0-1
+Depends: libc6 (>= 2.4), libgmp10, libmpfr6 (>= 4.0.0)
+Description: multiple precision complex floating-point library
+ MPC is a portable library written in C for arbitrary precision
+ arithmetic on complex numbers providing correct rounding. For the time
+ being, it contains all arithmetic operations over complex numbers, the
+ exponential and the logarithm functions, the trigonometric and
+ hyperbolic functions.
+ .
+ Ultimately, it should implement a multiprecision equivalent of the ISO
+ C99 standard.
+ .
+ It builds upon the GNU MP and the MPFR libraries.
+Homepage: http://www.multiprecision.org/mpc/
+
+Package: libmpdec2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 237
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: mpdecimal
+Version: 2.4.2-2
+Replaces: libmpdec2.3
+Depends: libc6 (>= 2.4)
+Breaks: libmpdec2.3
+Description: library for decimal floating point arithmetic (runtime library)
+ mpdecimal is a package for correctly-rounded arbitrary precision decimal
+ floating point arithmetic.
+Homepage: http://www.bytereef.org/mpdecimal/index.html
+
+Package: libmpfr6
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 1127
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: mpfr4
+Version: 4.0.2-1
+Depends: libc6 (>= 2.7), libgmp10
+Breaks: libcgal13 (<< 4.11-2+b1), libflint-2.5.2 (<< 2.5.2-17+b2), libgiac0 (<< 1.2.3.57+dfsg1-2+b4), libgmp3 (<< 4.1.4-3), libmpc3 (<< 1.1.0-1~), libnormaliz3 (<< 3.5.1+ds-4), sagemath (<< 8.1-2+b2)
+Description: multiple precision floating-point computation
+ MPFR provides a library for multiple-precision floating-point computation
+ with correct rounding.  The computation is both efficient and has a
+ well-defined semantics. It copies the good ideas from the
+ ANSI/IEEE-754 standard for double-precision floating-point arithmetic
+ (53-bit mantissa).
+Homepage: http://www.mpfr.org/
+
+Package: libmpx2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 52
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Replaces: libmpx0 (<< 6-20160120-1)
+Depends: gcc-8-base (= 8.3.0-6), libc6 (>= 2.17)
+Description: Intel memory protection extensions (runtime)
+ Intel MPX is a set of processor features which, with compiler,
+ runtime library and OS support, brings increased robustness to
+ software by checking pointer references whose compile time normal
+ intentions are usurped at runtime due to buffer overflow.
+Homepage: http://gcc.gnu.org/
+
 Package: libncursesw6
 Status: install ok installed
 Priority: optional
@@ -1294,6 +2740,26 @@ Description: low level cryptographic library (symmetric and one-way cryptos)
  algorithms. To avoid having this package depend on libgmp, the
  asymmetric cryptos reside in a separate library, libhogweed.
 Homepage: http://www.lysator.liu.se/~nisse/nettle/
+
+Package: libnpth0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 49
+Maintainer: Eric Dorland <eric@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: npth
+Version: 1.6-1
+Depends: libc6 (>= 2.17)
+Description: replacement for GNU Pth using system threads
+ nPth is a non-preemptive threads implementation using an API very
+ similar to the one known from GNU Pth. It has been designed as a
+ replacement of GNU Pth for non-ancient operating systems. In
+ contrast to GNU Pth it is based on the system's standard threads
+ implementation. Thus nPth allows the use of libraries which are not
+ compatible to GNU Pth.
+Homepage: https://www.gnupg.org/
 
 Package: libp11-kit0
 Status: install ok installed
@@ -1428,6 +2894,257 @@ Description: Old Perl 5 Compatible Regular Expression Library - runtime files
  packages should migrate to pcre2.
  .
  This package contains the runtime libraries.
+
+Package: libperl5.28
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 20667
+Maintainer: Niko Tyni <ntyni@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: perl
+Version: 5.28.1-6+deb10u1
+Replaces: libarchive-tar-perl (<= 1.38-2), libcompress-raw-bzip2-perl (<< 2.074), libcompress-raw-zlib-perl (<< 2.076), libcompress-zlib-perl (<< 2.074), libdigest-md5-perl (<< 2.55), libdigest-sha-perl (<< 6.01), libencode-perl (<< 2.97), libio-compress-base-perl (<< 2.074), libio-compress-bzip2-perl (<< 2.074), libio-compress-perl (<< 2.074), libio-compress-zlib-perl (<< 2.074), libmime-base64-perl (<< 3.15), libmodule-corelist-perl (<< 2.14-2), libstorable-perl (<< 3.08), libsys-syslog-perl (<< 0.35), libthreads-perl (<< 2.22), libthreads-shared-perl (<< 1.58), libtime-hires-perl (<< 1.9759), libtime-piece-perl (<< 1.3204), perl (<< 5.22.0~), perl-base (<< 5.22.0~)
+Depends: libbz2-1.0, libc6 (>= 2.28), libdb5.3, libgdbm-compat4 (>= 1.18-3), libgdbm6 (>= 1.18-3), zlib1g (>= 1:1.2.2.3), perl-modules-5.28 (>= 5.28.1-6+deb10u1)
+Suggests: sensible-utils
+Breaks: libcompress-raw-bzip2-perl (<< 2.074), libcompress-raw-zlib-perl (<< 2.076), libcompress-zlib-perl (<< 2.074), libdigest-md5-perl (<< 2.55), libdigest-sha-perl (<< 6.01), libencode-perl (<< 2.97), libfilter-perl (<< 1.58), libio-compress-base-perl (<< 2.074), libio-compress-bzip2-perl (<< 2.074), libio-compress-perl (<< 2.074), libio-compress-zlib-perl (<< 2.074), libmime-base64-perl (<< 3.15), libstorable-perl (<< 3.08), libsys-syslog-perl (<< 0.35), libthreads-perl (<< 2.22), libthreads-shared-perl (<< 1.58), libtime-hires-perl (<< 1.9759), libtime-piece-perl (<< 1.3204)
+Description: shared Perl library
+ This package contains the shared Perl library, used by applications
+ which embed a Perl interpreter.
+ .
+ It also contains the architecture-dependent parts of the standard
+ library (and depends on perl-modules-5.28 which contains the
+ architecture-independent parts).
+Homepage: http://dev.perl.org/perl5/
+
+Package: libpython3-dev
+Status: install ok installed
+Priority: optional
+Section: libdevel
+Installed-Size: 48
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: python3-defaults
+Version: 3.7.3-1
+Depends: libpython3.7-dev (>= 3.7.3-1~)
+Description: header files and a static library for Python (default)
+ Header files, a static library and development tools for building
+ Python modules, extending the Python interpreter or embedding Python
+ in applications.
+ .
+ This package is a dependency package, which depends on Debian's default
+ Python 3 version (currently v3.7).
+Homepage: https://www.python.org/
+
+Package: libpython3-stdlib
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 37
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: python3-defaults
+Version: 3.7.3-1
+Depends: libpython3.7-stdlib (>= 3.7.3-1~)
+Description: interactive high-level object-oriented language (default python3 version)
+ Python, the high-level, interactive object oriented language,
+ includes an extensive class library with lots of goodies for
+ network programming, system administration, sounds and graphics.
+ .
+ This package is a dependency package, which depends on Debian's default
+ Python 3 version (currently v3.7).
+Homepage: https://www.python.org/
+
+Package: libpython3.7
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 5127
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: python3.7
+Version: 3.7.3-2+deb10u7
+Depends: libpython3.7-stdlib (= 3.7.3-2+deb10u7), libc6 (>= 2.28), libexpat1 (>= 2.1~beta3), zlib1g (>= 1:1.2.0)
+Description: Shared Python runtime library (version 3.7)
+ Python is a high-level, interactive, object-oriented language. Its 3.7 version
+ includes an extensive class library with lots of goodies for
+ network programming, system administration, sounds and graphics.
+ .
+ This package contains the shared runtime library, normally not needed
+ for programs using the statically linked interpreter.
+
+Package: libpython3.7-dev
+Status: install ok installed
+Priority: optional
+Section: libdevel
+Installed-Size: 71226
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: python3.7
+Version: 3.7.3-2+deb10u7
+Depends: libpython3.7-stdlib (= 3.7.3-2+deb10u7), libpython3.7 (= 3.7.3-2+deb10u7), libexpat1-dev
+Recommends: libc6-dev | libc-dev
+Description: Header files and a static library for Python (v3.7)
+ Header files, a static library and development tools for building
+ Python (v3.7) modules, extending the Python interpreter or embedding
+ Python (v3.7) in applications.
+ .
+ Maintainers of Python packages should read README.maintainers.
+ .
+ This package contains development files. It is normally not
+ used on it's own, but as a dependency of python3.7-dev.
+
+Package: libpython3.7-minimal
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 3895
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: python3.7
+Version: 3.7.3-2+deb10u7
+Depends: libc6 (>= 2.4), libssl1.1 (>= 1.1.1)
+Recommends: libpython3.7-stdlib
+Breaks: libpython3.7-stdlib (<< 3.7.0~b2-1~)
+Conflicts: binfmt-support (<< 1.1.2), libpython3.7-stdlib (<< 3.7.0~b2-1~)
+Conffiles:
+ /etc/python3.7/sitecustomize.py d6b276695157bde06a56ba1b2bc53670
+Description: Minimal subset of the Python language (version 3.7)
+ This package contains some essential modules. It is normally not
+ used on it's own, but as a dependency of python3.7-minimal.
+
+Package: libpython3.7-stdlib
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 8009
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: python3.7
+Version: 3.7.3-2+deb10u7
+Replaces: libpython3.7-testsuite (<< 3.7.2-3), python3-distutils (<< 3.6.5~rc1-2)
+Depends: libpython3.7-minimal (= 3.7.3-2+deb10u7), mime-support, libbz2-1.0, libc6 (>= 2.28), libdb5.3, libffi6 (>= 3.0.4), liblzma5 (>= 5.1.1alpha+20120614), libmpdec2, libncursesw6 (>= 6), libreadline7 (>= 7.0~beta), libsqlite3-0 (>= 3.7.15), libtinfo6 (>= 6), libuuid1 (>= 2.20.1)
+Breaks: libmpdec2 (<< 2.4.2), libpython3.7-testsuite (<< 3.7.2-3), python3-distutils (<< 3.6.5~rc1-2), python3-tk (<< 3.6.4~rc1-2)
+Description: Interactive high-level object-oriented language (standard library, version 3.7)
+ Python is a high-level, interactive, object-oriented language. Its 3.7 version
+ includes an extensive class library with lots of goodies for
+ network programming, system administration, sounds and graphics.
+ .
+ This package contains Python 3.7's standard library. It is normally not
+ used on its own, but as a dependency of python3.7.
+
+Package: libquadmath0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 612
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Depends: gcc-8-base (= 8.3.0-6), libc6 (>= 2.23)
+Description: GCC Quad-Precision Math Library
+ A library, which provides quad-precision mathematical functions on targets
+ supporting the __float128 datatype. The library is used to provide on such
+ targets the REAL(16) type in the GNU Fortran compiler.
+Homepage: http://gcc.gnu.org/
+
+Package: libreadline7
+Status: install ok installed
+Priority: important
+Section: libs
+Installed-Size: 403
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: readline
+Version: 7.0-5
+Depends: readline-common, libc6 (>= 2.15), libtinfo6 (>= 6)
+Description: GNU readline and history libraries, run-time libraries
+ The GNU readline library aids in the consistency of user interface
+ across discrete programs that need to provide a command line
+ interface.
+ .
+ The GNU history library provides a consistent user interface for
+ recalling lines of previously typed input.
+
+Package: libsasl2-2
+Status: install ok installed
+Priority: standard
+Section: libs
+Installed-Size: 195
+Maintainer: Debian Cyrus Team <team+cyrus@tracker.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: cyrus-sasl2
+Version: 2.1.27+dfsg-1+deb10u2
+Replaces: libsasl2
+Depends: libsasl2-modules-db (>= 2.1.27+dfsg-1+deb10u2), libc6 (>= 2.28)
+Recommends: libsasl2-modules (>= 2.1.27+dfsg-1+deb10u2)
+Breaks: postfix (<= 2.8.3-1), slapd (<= 2.4.25-3)
+Description: Cyrus SASL - authentication abstraction library
+ This is the Cyrus SASL API implementation, version 2.1.
+ .
+ SASL is the Simple Authentication and Security Layer, a method for
+ adding authentication support to connection-based protocols. To use
+ SASL, a protocol includes a command for identifying and
+ authenticating a user to a server and for optionally negotiating
+ protection of subsequent protocol interactions. If its use is
+ negotiated, a security layer is inserted between the protocol and the
+ connection. See RFC 2222 for more information.
+ .
+ Any of: ANONYMOUS, CRAM-MD5, DIGEST-MD5, GSSAPI (MIT or Heimdal
+ Kerberos 5), NTLM, OTP, PLAIN, or LOGIN can be used.
+Homepage: https://www.cyrusimap.org/sasl/
+
+Package: libsasl2-modules
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 286
+Maintainer: Debian Cyrus Team <team+cyrus@tracker.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: cyrus-sasl2
+Version: 2.1.27+dfsg-1+deb10u2
+Depends: libc6 (>= 2.4), libssl1.1 (>= 1.1.0)
+Suggests: libsasl2-modules-gssapi-mit | libsasl2-modules-gssapi-heimdal, libsasl2-modules-ldap, libsasl2-modules-otp, libsasl2-modules-sql
+Breaks: logcheck-database (<= 1.3.16~)
+Conffiles:
+ /etc/logcheck/ignore.d.server/libsasl2-modules c032d5205f090a30661ae9f82a03f36e
+Description: Cyrus SASL - pluggable authentication modules
+ This is the Cyrus SASL API implementation, version 2.1. See package
+ libsasl2-2 and RFC 2222 for more information.
+ .
+ This package provides the following SASL modules: LOGIN, PLAIN, ANONYMOUS,
+ NTLM, CRAM-MD5, and DIGEST-MD5 (with DES support).
+Homepage: https://www.cyrusimap.org/sasl/
+
+Package: libsasl2-modules-db
+Status: install ok installed
+Priority: standard
+Section: libs
+Installed-Size: 97
+Maintainer: Debian Cyrus Team <team+cyrus@tracker.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: cyrus-sasl2
+Version: 2.1.27+dfsg-1+deb10u2
+Depends: libc6 (>= 2.4), libdb5.3
+Description: Cyrus SASL - pluggable authentication modules (DB)
+ This is the Cyrus SASL API implementation, version 2.1. See package
+ libsasl2-2 and RFC 2222 for more information.
+ .
+ This package provides the DB plugin, which supports Berkeley DB lookups.
+Homepage: https://www.cyrusimap.org/sasl/
 
 Package: libseccomp2
 Status: install ok installed
@@ -1582,6 +3299,24 @@ Depends: libc6 (>= 2.28)
 Description: smart column output alignment library
  This smart column output alignment library is used by fdisk utilities.
 
+Package: libsqlite3-0
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 1375
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: sqlite3
+Version: 3.27.2-3+deb10u2
+Depends: libc6 (>= 2.28)
+Breaks: python-migrate (<< 0.11.0-4~), python3-migrate (<< 0.11.0-4~)
+Description: SQLite 3 shared library
+ SQLite is a C library that implements an SQL database engine.
+ Programs that link with the SQLite library can have SQL database
+ access without running a separate RDBMS process.
+Homepage: https://www.sqlite.org/
+
 Package: libss2
 Status: install ok installed
 Priority: optional
@@ -1601,6 +3336,49 @@ Description: command-line interface parsing library
  .
  It was originally inspired by the Multics SubSystem library.
 Homepage: http://e2fsprogs.sourceforge.net
+
+Package: libssl1.1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 3961
+Maintainer: Debian OpenSSL Team <pkg-openssl-devel@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: openssl
+Version: 1.1.1n-0+deb10u6
+Depends: libc6 (>= 2.28), debconf (>= 0.5) | debconf-2.0
+Breaks: isync (<< 1.3.0-2), lighttpd (<< 1.4.49-2), python-boto (<< 2.44.0-1.1), python-httplib2 (<< 0.11.3-1), python-imaplib2 (<< 2.57-5), python3-boto (<< 2.44.0-1.1), python3-imaplib2 (<< 2.57-5)
+Description: Secure Sockets Layer toolkit - shared libraries
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It provides the libssl and libcrypto shared libraries.
+Homepage: https://www.openssl.org/
+
+Package: libstdc++-8-dev
+Status: install ok installed
+Priority: optional
+Section: libdevel
+Installed-Size: 15156
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Provides: libstdc++-dev
+Depends: gcc-8-base (= 8.3.0-6), libgcc-8-dev (= 8.3.0-6), libstdc++6 (>= 8.3.0-6), libc6-dev (>= 2.13-5)
+Suggests: libstdc++-8-doc
+Conflicts: libg++2.8-dev, libg++27-dev, libg++272-dev (<< 2.7.2.8-1), libstdc++2.10-dev (<< 1:2.95.3-2), libstdc++2.8-dev, libstdc++2.9-dev, libstdc++2.9-glibc2.1-dev, libstdc++3.0-dev
+Description: GNU Standard C++ Library v3 (development files)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+Homepage: http://gcc.gnu.org/
 
 Package: libstdc++6
 Status: install ok installed
@@ -1681,6 +3459,23 @@ Description: shared low-level terminfo library for terminal handling
  This package contains the shared low-level terminfo library.
 Homepage: https://invisible-island.net/ncurses/
 
+Package: libubsan1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 372
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: gcc-8
+Version: 8.3.0-6
+Depends: gcc-8-base (= 8.3.0-6), libc6 (>= 2.28), libgcc1 (>= 1:3.3), libstdc++6 (>= 4.1.1)
+Description: UBSan -- undefined behaviour sanitizer (runtime)
+ UndefinedBehaviorSanitizer can be enabled via -fsanitize=undefined.
+ Various computations will be instrumented to detect undefined behavior
+ at runtime. Available for C and C++.
+Homepage: http://gcc.gnu.org/
+
 Package: libudev1
 Status: install ok installed
 Priority: optional
@@ -1740,6 +3535,28 @@ Description: Universally Unique ID library
  .
  See RFC 4122 for more information.
 
+Package: libxml2
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 2003
+Maintainer: Debian XML/SGML Group <debian-xml-sgml-pkgs@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Version: 2.9.4+dfsg1-7+deb10u6
+Depends: libc6 (>= 2.28), libicu63 (>= 63.1-1~), liblzma5 (>= 5.1.1alpha+20120614), zlib1g (>= 1:1.2.3.3)
+Description: GNOME XML library
+ XML is a metalanguage to let you design your own markup language.
+ A regular markup language defines a way to describe information in
+ a certain class of documents (eg HTML). XML lets you define your
+ own customized markup languages for many classes of document. It
+ can do this because it's written in SGML, the international standard
+ metalanguage for markup languages.
+ .
+ This package provides a library providing an extensive API to handle
+ such XML data files.
+Homepage: http://xmlsoft.org
+
 Package: libxtables12
 Status: install ok installed
 Priority: optional
@@ -1779,6 +3596,23 @@ Description: fast lossless compression algorithm
  This package contains the shared library.
 Homepage: https://github.com/facebook/zstd
 
+Package: linux-libc-dev
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 5400
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: linux
+Version: 4.19.316-1
+Provides: linux-kernel-headers
+Description: Linux support headers for userspace development
+ This package provides userspaces headers from the Linux kernel.  These
+ headers are used by the installed headers for GNU libc and other system
+ libraries.
+Homepage: https://www.kernel.org/
+
 Package: login
 Essential: yes
 Status: install ok installed
@@ -1805,6 +3639,100 @@ Description: system login tools
  user ID (useful being able to execute commands as another user).
 Homepage: https://github.com/shadow-maint/shadow
 
+Package: lsb-base
+Status: install ok installed
+Priority: required
+Section: misc
+Installed-Size: 49
+Maintainer: Debian LSB Team <debian-lsb@lists.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: lsb
+Version: 10.2019051400
+Description: Linux Standard Base init script functionality
+ The Linux Standard Base (http://www.linuxbase.org/) is a standard
+ core system that third-party applications written for Linux can
+ depend upon.
+ .
+ This package only includes the init-functions shell library, which
+ may be used by other packages' initialization scripts for console
+ logging and other purposes.
+Homepage: https://wiki.linuxfoundation.org/lsb/start
+
+Package: make
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: 1309
+Maintainer: Manoj Srivastava <srivasta@debian.org>
+Architecture: i386
+Multi-Arch: allowed
+Source: make-dfsg
+Version: 4.2.1-1.2
+Replaces: make-guile
+Depends: libc6 (>= 2.27)
+Suggests: make-doc
+Conflicts: make-guile
+Description: utility for directing compilation
+ GNU Make is a utility which controls the generation of executables
+ and other target files of a program from the program's source
+ files. It determines automatically which pieces of a large program
+ need to be (re)created, and issues the commands to (re)create
+ them. Make can be used to organize any task in which targets (files)
+ are to be automatically updated based on input files whenever the
+ corresponding input is newer --- it is not limited to building
+ computer programs. Indeed, Make is a general purpose dependency
+ solver.
+Homepage: https://www.gnu.org/software/make/
+
+Package: manpages
+Status: install ok installed
+Priority: standard
+Section: doc
+Installed-Size: 1500
+Maintainer: Martin Schulze <joey@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Version: 4.16-2
+Replaces: attr (<< 1:2.4.47-3), keyutils (<< 1.6-1)
+Suggests: man-browser
+Breaks: attr (<< 1:2.4.47-3), keyutils (<< 1.6-1), manpages-dev (<< 4.13-3)
+Description: Manual pages about using a GNU/Linux system
+ This package contains GNU/Linux manual pages for these sections:
+  4 = Devices (e.g. hd, sd).
+  5 = File formats and protocols, syntaxes of several system
+      files (e.g. wtmp, /etc/passwd, nfs).
+  7 = Conventions and standards, macro packages, etc.
+      (e.g. nroff, ascii).
+ .
+ Sections 1, 6 and 8 are provided by the respective applications. This
+ package only includes the intro man page describing the section.
+ .
+ The man pages describe syntaxes of several system files.
+Homepage: https://www.kernel.org/doc/man-pages/
+
+Package: manpages-dev
+Status: install ok installed
+Priority: optional
+Section: doc
+Installed-Size: 3842
+Maintainer: Martin Schulze <joey@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: manpages
+Version: 4.16-2
+Replaces: libattr1-dev (<< 1:2.4.47-3), libbsd-dev (<< 0.8.4-1), manpages (<< 4.13-3)
+Depends: manpages
+Suggests: man-browser
+Breaks: libattr1-dev (<< 1:2.4.47-3), libbsd-dev (<< 0.8.4-1), manpages (<< 4.13-3)
+Description: Manual pages about using GNU/Linux for development
+ These man pages describe the Linux programming interface, including
+ these two sections:
+  2 = Linux system calls.
+  3 = Library calls (note that a more comprehensive source of information
+      may be found in the glibc-doc and glibc-doc-reference packages).
+Homepage: https://www.kernel.org/doc/man-pages/
+
 Package: mawk
 Status: install ok installed
 Priority: required
@@ -1830,6 +3758,31 @@ Description: a pattern scanning and text processing language
  .
  Mawk is smaller and much faster than gawk. It has some compile-time
  limits such as NF = 32767 and sprintf buffer = 1020.
+
+Package: mime-support
+Status: install ok installed
+Priority: standard
+Section: net
+Installed-Size: 110
+Maintainer: Mime-Support Packagers <team+debian-mimesupport-packagers@tracker.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Version: 3.62
+Recommends: bzip2, file, xz-utils
+Conffiles:
+ /etc/mime.types 0d516753aee0a2c670c79667aad0c836
+ /etc/mailcap.order ba07e08a7fe3741d0b8339127963190e
+Description: MIME files 'mime.types' & 'mailcap', and support programs
+ As these files can be used by all MIME compliant programs, they
+ have been moved into their own package that others can depend upon.
+ .
+ Other packages add themselves as viewers/editors/composers/etc by
+ using the provided "update-mime" program.
+ .
+ In addition, the commands "see", "edit", "compose", and "print"
+ will display, alter, create, and print (respectively) any file using
+ a program determined from the entries in the mime.types and mailcap
+ files.
 
 Package: mount
 Status: install ok installed
@@ -1896,6 +3849,54 @@ Description: terminal-related programs and man pages
  resetting terminals and such.
 Homepage: https://invisible-island.net/ncurses/
 
+Package: netbase
+Status: install ok installed
+Priority: important
+Section: admin
+Installed-Size: 44
+Maintainer: Marco d'Itri <md@linux.it>
+Architecture: all
+Multi-Arch: foreign
+Version: 5.6
+Conffiles:
+ /etc/protocols bb9c019d6524e913fd72441d58b68216
+ /etc/rpc f0b6f6352bf886623adc04183120f83b
+ /etc/services c2f245a9bee4ea2e830fbf1f2100617e
+Description: Basic TCP/IP networking system
+ This package provides the necessary infrastructure for basic TCP/IP based
+ networking.
+ .
+ In particular, it supplies tables of common name-to-number mappings in
+ /etc/services, /etc/rpc, and /etc/protocols.
+
+Package: openssl
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 1465
+Maintainer: Debian OpenSSL Team <pkg-openssl-devel@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Version: 1.1.1n-0+deb10u6
+Depends: libc6 (>= 2.15), libssl1.1 (>= 1.1.1)
+Suggests: ca-certificates
+Conffiles:
+ /etc/ssl/openssl.cnf 8dd4de5642570c91e9071900b6b9d5bc
+Description: Secure Sockets Layer toolkit - cryptographic utility
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It contains the general-purpose command line binary /usr/bin/openssl,
+ useful for cryptographic operations such as:
+  * creating RSA, DH, and DSA key parameters;
+  * creating X.509 certificates, CSRs, and CRLs;
+  * calculating message digests;
+  * encrypting and decrypting with ciphers;
+  * testing SSL/TLS clients and servers;
+  * handling S/MIME signed or encrypted mail.
+Homepage: https://www.openssl.org/
+
 Package: passwd
 Status: install ok installed
 Priority: required
@@ -1923,6 +3924,57 @@ Description: change and administer password and group data
  Shadow passwords are supported.  See /usr/share/doc/passwd/README.Debian
 Homepage: https://github.com/shadow-maint/shadow
 
+Package: patch
+Status: install ok installed
+Priority: optional
+Section: vcs
+Installed-Size: 278
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Version: 2.7.6-3+deb10u1
+Depends: libc6 (>= 2.28)
+Suggests: ed, diffutils-doc
+Description: Apply a diff file to an original
+ Patch will take a patch file containing any of the four forms
+ of difference listing produced by the diff program and apply
+ those differences to an original file, producing a patched
+ version.
+Homepage: http://savannah.gnu.org/projects/patch/
+
+Package: perl
+Status: install ok installed
+Priority: standard
+Section: perl
+Installed-Size: 575
+Maintainer: Niko Tyni <ntyni@debian.org>
+Architecture: i386
+Multi-Arch: allowed
+Version: 5.28.1-6+deb10u1
+Replaces: perl-modules (<< 5.22.0~)
+Provides: libansicolor-perl (= 4.06), libarchive-tar-perl (= 2.30), libattribute-handlers-perl (= 1.01), libautodie-perl (= 2.29-2), libcompress-raw-bzip2-perl (= 2.074), libcompress-raw-zlib-perl (= 2.076), libcompress-zlib-perl (= 2.074), libcpan-meta-perl (= 2.150010), libcpan-meta-requirements-perl (= 2.140), libcpan-meta-yaml-perl (= 0.018), libdigest-md5-perl (= 2.55), libdigest-perl (= 1.17.01), libdigest-sha-perl (= 6.01), libencode-perl (= 2.97), libexperimental-perl (= 0.019), libextutils-cbuilder-perl (= 0.280230), libextutils-command-perl (= 7.34), libextutils-install-perl (= 2.14), libextutils-parsexs-perl (= 3.390000), libfile-spec-perl (= 3.7400), libhttp-tiny-perl (= 0.070), libi18n-langtags-perl (= 0.43), libio-compress-base-perl (= 2.074), libio-compress-bzip2-perl (= 2.074), libio-compress-perl (= 2.074), libio-compress-zlib-perl (= 2.074), libio-zlib-perl (= 1.10), libjson-pp-perl (= 2.97001), liblocale-maketext-perl (= 1.29), liblocale-maketext-simple-perl (= 0.21.01), libmath-bigint-perl (= 1.999811), libmath-complex-perl (= 1.5901), libmime-base64-perl (= 3.15), libmodule-corelist-perl (= 5.20181129.28), libmodule-load-conditional-perl (= 0.68), libmodule-load-perl (= 0.32), libmodule-metadata-perl (= 1.000033), libnet-perl (= 1:3.11), libnet-ping-perl (= 2.62), libparams-check-perl (= 0.38), libparent-perl (= 0.236), libparse-cpan-meta-perl (= 2.150010), libperl-ostype-perl (= 1.010), libpod-escapes-perl (= 1.07), libpod-parser-perl (= 1.63), libpod-simple-perl (= 3.35), libstorable-perl (= 3.08), libsys-syslog-perl (= 0.35), libtest-harness-perl (= 3.42), libtest-simple-perl (= 1.302133), libtest-tester-perl (= 1.302133), libtest-use-ok-perl (= 1.302133), libthread-queue-perl (= 3.12), libthreads-perl (= 2.22), libthreads-shared-perl (= 1.58), libtime-hires-perl (= 1.9759), libtime-local-perl (= 1.2500), libtime-piece-perl (= 1.3204), libunicode-collate-perl (= 1.25), libversion-perl (= 1:0.9923), libversion-requirements-perl, perl-cross-config, podlators-perl (= 4.10)
+Depends: perl-base (= 5.28.1-6+deb10u1), perl-modules-5.28 (>= 5.28.1-6+deb10u1), libperl5.28 (= 5.28.1-6+deb10u1)
+Pre-Depends: dpkg (>= 1.17.17)
+Recommends: netbase
+Suggests: perl-doc, libterm-readline-gnu-perl | libterm-readline-perl-perl, make, libb-debug-perl, liblocale-codes-perl
+Breaks: apt-show-versions (<< 0.22.10), libdist-inkt-perl (<< 0.024-5), libmarc-charset-perl (<< 1.35-3), libperl-dev (<< 5.24.0~), perl-doc (<< 5.28.1-1)
+Conflicts: libjson-pp-perl (<< 2.27200-2)
+Conffiles:
+ /etc/perl/Net/libnet.cfg fb2946cae573b8ed3d654a180d458733
+Description: Larry Wall's Practical Extraction and Report Language
+ Perl is a highly capable, feature-rich programming language with over
+ 20 years of development. Perl 5 runs on over 100 platforms from
+ portables to mainframes. Perl is suitable for both rapid prototyping
+ and large scale development projects.
+ .
+ Perl 5 supports many programming styles, including procedural,
+ functional, and object-oriented. In addition to this, it is supported
+ by an ever-growing collection of reusable modules which accelerate
+ development. Some of these modules include Web frameworks, database
+ integration, networking protocols, and encryption. Perl provides
+ interfaces to C and C++ for custom extension development.
+Homepage: http://dev.perl.org/perl5/
+
 Package: perl-base
 Essential: yes
 Status: install ok installed
@@ -1948,6 +4000,627 @@ Description: minimal Perl system
  and "perl-doc").
 Homepage: http://dev.perl.org/perl5/
 
+Package: perl-modules-5.28
+Status: install ok installed
+Priority: standard
+Section: perl
+Installed-Size: 18894
+Maintainer: Niko Tyni <ntyni@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: perl
+Version: 5.28.1-6+deb10u1
+Replaces: libansicolor-perl (<< 4.06), libarchive-tar-perl (<< 2.30), libattribute-handlers-perl (<< 1.01), libautodie-perl (<< 2.29-2), libcpan-meta-perl (<< 2.150010), libcpan-meta-requirements-perl (<< 2.140), libcpan-meta-yaml-perl (<< 0.018), libdigest-perl (<< 1.17.01), libexperimental-perl (<< 0.019), libextutils-cbuilder-perl (<< 0.280230), libextutils-command-perl (<< 7.34), libextutils-install-perl (<< 2.14), libextutils-parsexs-perl (<< 3.390000), libfile-spec-perl (<< 3.7400), libhttp-tiny-perl (<< 0.070), libi18n-langtags-perl (<< 0.43), libio-zlib-perl (<< 1.10), libjson-pp-perl (<< 2.97001), liblocale-maketext-perl (<< 1.29), liblocale-maketext-simple-perl (<< 0.21.01), libmath-bigint-perl (<< 1.999811), libmath-complex-perl (<< 1.5901), libmodule-corelist-perl (<< 5.20181129.28), libmodule-load-conditional-perl (<< 0.68), libmodule-load-perl (<< 0.32), libmodule-metadata-perl (<< 1.000033), libnet-perl (<< 1:3.11), libnet-ping-perl (<< 2.62), libparams-check-perl (<< 0.38), libparent-perl (<< 0.236), libparse-cpan-meta-perl (<< 2.150010), libperl-ostype-perl (<< 1.010), libpod-escapes-perl (<< 1.07), libpod-parser-perl (<< 1.63), libpod-simple-perl (<< 3.35), libtest-harness-perl (<< 3.42), libtest-simple-perl (<< 1.302133), libtest-tester-perl (<< 1.302133), libtest-use-ok-perl (<< 1.302133), libthread-queue-perl (<< 3.12), libtime-local-perl (<< 1.2500), libunicode-collate-perl (<< 1.25), libversion-perl (<< 1:0.9923), perl-base (<< 5.22.0~), perl-modules, podlators-perl (<< 4.10)
+Provides: perl-modules
+Depends: perl-base (>= 5.28.1-1)
+Pre-Depends: dpkg (>= 1.17.17)
+Recommends: perl (>= 5.28.1-1)
+Breaks: libansicolor-perl (<< 4.06), libarchive-tar-perl (<< 2.30), libattribute-handlers-perl (<< 1.01), libautodie-perl (<< 2.29-2), libb-debug-perl (<< 1.26), libcpan-meta-perl (<< 2.150010), libcpan-meta-requirements-perl (<< 2.140), libcpan-meta-yaml-perl (<< 0.018), libdigest-perl (<< 1.17.01), libexperimental-perl (<< 0.019), libextutils-cbuilder-perl (<< 0.280230), libextutils-command-perl (<< 7.34), libextutils-install-perl (<< 2.14), libextutils-parsexs-perl (<< 3.390000), libfile-spec-perl (<< 3.7400), libhttp-tiny-perl (<< 0.070), libi18n-langtags-perl (<< 0.43), libio-zlib-perl (<< 1.10), libjson-pp-perl (<< 2.97001), liblocale-codes-perl (<< 3.56), liblocale-maketext-perl (<< 1.29), liblocale-maketext-simple-perl (<< 0.21.01), libmath-bigint-perl (<< 1.999811), libmath-complex-perl (<< 1.5901), libmodule-corelist-perl (<< 5.20181129.28), libmodule-load-conditional-perl (<< 0.68), libmodule-load-perl (<< 0.32), libmodule-metadata-perl (<< 1.000033), libnet-perl (<< 1:3.11), libnet-ping-perl (<< 2.62), libparams-check-perl (<< 0.38), libparent-perl (<< 0.236), libparse-cpan-meta-perl (<< 2.150010), libperl-ostype-perl (<< 1.010), libpod-escapes-perl (<< 1.07), libpod-parser-perl (<< 1.63), libpod-simple-perl (<< 3.35), libtest-harness-perl (<< 3.42), libtest-simple-perl (<< 1.302133), libtest-tester-perl (<< 1.302133), libtest-use-ok-perl (<< 1.302133), libthread-queue-perl (<< 3.12), libtime-local-perl (<< 1.2500), libunicode-collate-perl (<< 1.25), libversion-perl (<< 1:0.9923), maildirsync (<< 1.2-2.1), perl (<< 5.28.1~), podlators-perl (<< 4.10)
+Conflicts: perl-modules (<< 5.22.0~)
+Description: Core Perl modules
+ Architecture independent Perl modules.  These modules are part of Perl and
+ required if the `perl' package is installed.
+ .
+ Note that this package only exists to save archive space and should be
+ considered an internal implementation detail of the `perl' package.
+ Other packages should not depend on `perl-modules-5.28' directly, they
+ should use `perl' (which depends on `perl-modules-5.28') instead.
+Homepage: http://dev.perl.org/perl5/
+
+Package: pinentry-curses
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 124
+Maintainer: Debian GnuPG Maintainers <pkg-gnupg-maint@lists.alioth.debian.org>
+Architecture: i386
+Source: pinentry
+Version: 1.1.0-2
+Provides: pinentry
+Depends: libassuan0 (>= 2.1.0), libc6 (>= 2.4), libgpg-error0 (>= 1.16), libncursesw6 (>= 6), libtinfo6 (>= 6)
+Suggests: pinentry-doc
+Enhances: gnupg-agent
+Description: curses-based PIN or pass-phrase entry dialog for GnuPG
+ This package contains a program that allows for secure entry of PINs or
+ pass phrases.  That means it tries to take care that the entered
+ information is not swapped to disk or temporarily stored anywhere.
+ This functionality is particularly useful for entering pass phrases
+ when using encryption software such as GnuPG or e-mail clients using
+ the same.  It uses an open protocol and is therefore not tied to
+ particular software.
+ .
+ The program contained in this package implements a PIN entry dialog
+ using the curses tool kit, meaning that it is useful for users
+ working in text mode without the X Window System.  There are sibling
+ packages that implement PIN entry dialogs that use an X tool kit.  If
+ you install any of the graphical packages then this package is not
+ necessary because the sibling packages automatically fall back to
+ text mode if X is not active.
+Homepage: https://www.gnupg.org/related_software/pinentry/
+
+Package: python-pip-whl
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 1933
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Architecture: all
+Source: python-pip
+Version: 18.1-5
+Replaces: python-chardet-whl (<< 2.3.0-2), python-colorama-whl (<< 0.3.6-1), python-distlib-whl (<< 0.2.2-1), python-html5lib-whl (<< 0.999-4), python-requests-whl (<< 2.9.1-3), python-setuptools-whl (<< 20.1.1-1), python-six-whl (<< 1.10.0-3), python-urllib3-whl (<< 1.13.1-2), virtualenv (<< 14.0.5+ds-5)
+Depends: ca-certificates
+Breaks: python-chardet-whl (<< 2.3.0-2), python-colorama-whl (<< 0.3.6-1), python-distlib-whl (<< 0.2.2-1), python-html5lib-whl (<< 0.999-4), python-requests-whl (<< 2.9.1-3), python-setuptools-whl (<< 20.1.1-1), python-six-whl (<< 1.10.0-3), python-urllib3-whl (<< 1.13.1-2), virtualenv (<< 14.0.5+ds-5)
+Description: Python package installer
+ pip is the Python package installer.  It integrates with virtualenv, doesn't
+ do partial installs, can save package state for replaying, can install from
+ non-egg sources, and can install from version control repositories.
+ .
+ This is the support package for the PEP 427 wheel version of the package,
+ required for using pip inside a virtual environment.
+Built-Using: appdirs (= 1.4.3-1), chardet (= 3.0.4-3), distlib (= 0.2.8-1), html5lib (= 1.0.1-1), pyparsing (= 2.2.0+dfsg1-2), python-cachecontrol (= 0.11.7-1), python-certifi (= 2018.8.24-1), python-colorama (= 0.3.7-1), python-distro (= 1.3.0-1), python-idna (= 2.6-1), python-lockfile (= 1:0.12.2-2), python-packaging (= 19.0-1), python-progress (= 1.2-1), python-retrying (= 1.3.3-3), python-setuptools (= 40.8.0-1), python-urllib3 (= 1.24.1-1), python-webencodings (= 0.5.1-1), pytoml (= 0.1.2-1), requests (= 2.21.0-1), six (= 1.12.0-1), wheel (= 0.32.3-2)
+Homepage: https://pip.pypa.io/en/stable/
+
+Package: python3
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 187
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: allowed
+Source: python3-defaults
+Version: 3.7.3-1
+Replaces: python3-minimal (<< 3.1.2-2)
+Provides: python3-profiler
+Depends: python3.7 (>= 3.7.3-1~), libpython3-stdlib (= 3.7.3-1)
+Pre-Depends: python3-minimal (= 3.7.3-1)
+Suggests: python3-doc (>= 3.7.3-1), python3-tk (>= 3.7.2-1~), python3-venv (>= 3.7.3-1)
+Description: interactive high-level object-oriented language (default python3 version)
+ Python, the high-level, interactive object oriented language,
+ includes an extensive class library with lots of goodies for
+ network programming, system administration, sounds and graphics.
+ .
+ This package is a dependency package, which depends on Debian's default
+ Python 3 version (currently v3.7).
+Homepage: https://www.python.org/
+Cnf-Extra-Commands: python
+Cnf-Priority-Bonus: 5
+
+Package: python3-asn1crypto
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 499
+Maintainer: Tristan Seligmann <mithrandi@debian.org>
+Architecture: all
+Source: asn1crypto
+Version: 0.24.0-1
+Depends: python3:any (>= 3.3.2-2~)
+Description: Fast ASN.1 parser and serializer (Python 3)
+ asn1crypto focuses on:
+  - Delayed parsing of byte string values
+  - Persistence of original ASN.1 encoded data until a value is changed
+  - Lazy loading of child fields
+  - Utilization of high-level Python stdlib modules
+ .
+ This package contains the Python 3 version of asn1crypto.
+Homepage: https://github.com/wbond/asn1crypto
+
+Package: python3-cffi-backend
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 198
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Architecture: i386
+Source: python-cffi
+Version: 1.12.2-1
+Replaces: python3-cffi (<< 1)
+Provides: python3-cffi-backend-api-9729, python3-cffi-backend-api-max (= 10495), python3-cffi-backend-api-min (= 9729)
+Depends: python3 (<< 3.8), python3 (>= 3.7~), libc6 (>= 2.4), libffi6 (>= 3.0.4)
+Breaks: python3-cffi (<< 1)
+Description: Foreign Function Interface for Python 3 calling C code - runtime
+ Convenient and reliable way of calling C code from Python 3.
+ .
+ The aim of this project is to provide a convenient and reliable way of calling
+ C code from Python. It keeps Python logic in Python, and minimises the C
+ required. It is able to work at either the C API or ABI level, unlike most
+ other approaches, that only support the ABI level.
+ .
+ This package contains the runtime support for pre-built cffi modules.
+Homepage: http://cffi.readthedocs.org/
+
+Package: python3-crypto
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 1804
+Maintainer: Sebastian Ramacher <sramacher@debian.org>
+Architecture: i386
+Source: python-crypto (2.6.1-9)
+Version: 2.6.1-9+b1
+Provides: python3.6-crypto, python3.7-crypto
+Depends: python3 (<< 3.8), python3 (>= 3.6~), python3:any (>= 3.3.2-2~), libc6 (>= 2.4), libgmp10
+Suggests: python-crypto-doc
+Description: cryptographic algorithms and protocols for Python 3
+ A collection of cryptographic algorithms and protocols, implemented
+ for use from Python 3. Among the contents of the package:
+ .
+  * Hash functions: HMAC, MD2, MD4, MD5, RIPEMD160, SHA, SHA256.
+  * Block encryption algorithms: AES, ARC2, Blowfish, CAST, DES, Triple-DES.
+  * Stream encryption algorithms: ARC4, simple XOR.
+  * Public-key algorithms: RSA, DSA, ElGamal.
+  * Protocols: All-or-nothing transforms, chaffing/winnowing.
+  * Miscellaneous: RFC1751 module for converting 128-bit keys
+    into a set of English words, primality testing, random number generation.
+Homepage: http://www.pycrypto.org/
+
+Package: python3-cryptography
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 1342
+Maintainer: Tristan Seligmann <mithrandi@debian.org>
+Architecture: i386
+Source: python-cryptography
+Version: 2.6.1-3+deb10u4
+Depends: python3 (>= 3~), python3-asn1crypto (>= 0.21.0~), python3-cffi-backend-api-min (<= 9729), python3-cffi-backend-api-max (>= 9729), python3-six (>= 1.4.1), python3:any, libc6 (>= 2.4), libssl1.1 (>= 1.1.1)
+Suggests: python-cryptography-doc, python3-cryptography-vectors
+Breaks: python3-openssl (<< 16.0.0)
+Description: Python library exposing cryptographic recipes and primitives (Python 3)
+ The cryptography library is designed to be a "one-stop-shop" for
+ all your cryptographic needs in Python.
+ .
+ As an alternative to the libraries that came before it, cryptography
+ tries to address some of the issues with those libraries:
+  - Lack of PyPy and Python 3 support.
+  - Lack of maintenance.
+  - Use of poor implementations of algorithms (i.e. ones with known
+    side-channel attacks).
+  - Lack of high level, "Cryptography for humans", APIs.
+  - Absence of algorithms such as AES-GCM.
+  - Poor introspectability, and thus poor testability.
+  - Extremely error prone APIs, and bad defaults.
+ .
+ This package contains the Python 3 version of cryptography.
+Homepage: https://cryptography.io/
+
+Package: python3-dbus
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 399
+Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Source: dbus-python
+Version: 1.2.8-3
+Provides: python3.7-dbus
+Depends: python3 (<< 3.8), python3 (>= 3.7~), python3:any, libc6 (>= 2.4), libdbus-1-3 (>= 1.9.14), libglib2.0-0 (>= 2.40)
+Recommends: python3-gi
+Suggests: python-dbus-doc, python3-dbus-dbg
+Description: simple interprocess messaging system (Python 3 interface)
+ D-Bus is a message bus, used for sending messages between applications.
+ Conceptually, it fits somewhere in between raw sockets and CORBA in
+ terms of complexity.
+ .
+ This package provides a Python 3 interface to D-Bus.
+ .
+ See the dbus description for more information about D-Bus in general.
+Homepage: http://www.freedesktop.org/wiki/Software/DBusBindings#Python
+
+Package: python3-dev
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 17
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: allowed
+Source: python3-defaults
+Version: 3.7.3-1
+Replaces: python3.1 (<< 3.1.2+20100706-3)
+Depends: python3 (= 3.7.3-1), libpython3-dev (= 3.7.3-1), python3.7-dev (>= 3.7.3-1~), python3-distutils (>= 3.7.2-1~), dh-python
+Description: header files and a static library for Python (default)
+ Header files, a static library and development tools for building
+ Python modules, extending the Python interpreter or embedding Python
+ in applications.
+ .
+ This package is a dependency package, which depends on Debian's default
+ Python 3 version (currently v3.7).
+Homepage: https://www.python.org/
+
+Package: python3-distutils
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 698
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: python3-stdlib-extensions
+Version: 3.7.3-1
+Replaces: libpython3.6-stdlib (<< 3.6.4~rc1-2), libpython3.7-stdlib (<< 3.7.0~a3-2)
+Provides: python3.7-distutils
+Depends: python3 (>= 3.7.1-1~), python3 (<< 3.8), python3-lib2to3 (>= 3.6.4)
+Breaks: libpython3.6-stdlib (<< 3.6.5~rc1-3), libpython3.7-stdlib (<< 3.7.0~b2-2)
+Description: distutils package for Python 3.x
+ Distutils package for Python 3.x.  This package contains the distutils module
+ from the Python standard library.
+
+Package: python3-entrypoints
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 23
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Architecture: all
+Source: entrypoints
+Version: 0.3-1
+Depends: python3:any
+Description: Discover and load entry points from installed packages (Python 3)
+ This module contains functions to find and load entry points
+ in installed packages.
+ .
+ This package installs the library for Python 3.
+Homepage: https://github.com/takluyver/entrypoints
+
+Package: python3-gi
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 1060
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Source: pygobject
+Version: 3.30.4-1
+Depends: gir1.2-glib-2.0 (>= 1.39.0), python3 (<< 3.8), python3 (>= 3.6~), python3:any, libc6 (>= 2.4), libffi6 (>= 3.0.4), libgirepository-1.0-1 (>= 1.44.0), libglib2.0-0 (>= 2.41.1)
+Description: Python 3 bindings for gobject-introspection libraries
+ GObject is an abstraction layer that allows programming with an object
+ paradigm that is compatible with many languages. It is a part of Glib,
+ the core library used to build GTK+ and GNOME.
+ .
+ This package contains the Python 3 binding generator for libraries that
+ support gobject-introspection, i. e. which ship a gir1.2-<name>-<version>
+ package. With these packages, the libraries can be used from Python 3.
+Homepage: https://wiki.gnome.org/Projects/PyGObject
+
+Package: python3-keyring
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 152
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Architecture: all
+Source: python-keyring
+Version: 17.1.1-1
+Depends: python3-dbus, python3-entrypoints, python3-secretstorage, python3:any
+Suggests: gnome-keyring, libkf5wallet-bin, python3-keyrings.alt
+Breaks: python3-keyrings.alt (<< 3.1), python3-wheel (<< 0.27)
+Description: store and access your passwords safely - Python 3 version of the package
+ The Python keyring library provides an easy way to access the system
+ keyring service (e.g Gnome-Keyring, KWallet) from Python.
+ It can be used in any application that needs safe password storage.
+ .
+ This is the Python 3 version of the package.
+Homepage: https://github.com/jaraco/keyring
+
+Package: python3-keyrings.alt
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 87
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Architecture: all
+Source: keyrings.alt
+Version: 3.1.1-1
+Depends: python3-crypto, python3-six, python3:any
+Suggests: gir1.2-gnomekeyring-1.0, python3-gi
+Description: alternate backend implementations for python3-keyring
+ The Python keyring library provides an easy way to access the system keyring
+ service from Python. It can be used in any application that needs safe
+ password storage.
+ .
+ Keyrings.alt module contains the alternate keyring backend implementations
+ for use with python-keyring, most importantly the file backend which does
+ not need any external services to work.
+ .
+ Keyrings in this package may have security risks or other implications.
+ These backends were extracted from the main keyring project to make them
+ available for those who wish to employ them, but are discouraged for general
+ production use. Include this module and use its backends at your own risk.
+ .
+ This package contains the Python 3 version of keyrings.alt.
+Homepage: https://github.com/jaraco/keyrings.alt
+
+Package: python3-lib2to3
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 363
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: python3-stdlib-extensions
+Version: 3.7.3-1
+Replaces: libpython3.6-stdlib (<< 3.6.4~rc1-2), libpython3.7-stdlib (<< 3.7.0~a3-3), python3.6-2to3 (<< 3.6.4-2), python3.7-2to3 (<< 3.7.0~a3-3)
+Provides: python3.7-lib2to3
+Depends: python3 (>= 3.7.1-1~), python3 (<< 3.8)
+Breaks: libpython3.6-stdlib (<< 3.6.4~rc1-2), libpython3.7-stdlib (<< 3.7.0~a3-3), python3.6-2to3 (<< 3.6.4-2), python3.7-2to3 (<< 3.7.0~a3-3)
+Description: Interactive high-level object-oriented language (2to3, version 3.6)
+ Python is a high-level, interactive, object-oriented language. Its 3.6 version
+ includes an extensive class library with lots of goodies for
+ network programming, system administration, sounds and graphics.
+ .
+ This package contains the lib2to3 library.
+
+Package: python3-minimal
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 121
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: allowed
+Source: python3-defaults
+Version: 3.7.3-1
+Depends: dpkg (>= 1.13.20)
+Pre-Depends: python3.7-minimal (>= 3.7.3-1~)
+Description: minimal subset of the Python language (default python3 version)
+ This package contains the interpreter and some essential modules.  It's used
+ in the boot process for some basic tasks.
+ See /usr/share/doc/python3.7-minimal/README.Debian for a list of the modules
+ contained in this package.
+Homepage: https://www.python.org/
+
+Package: python3-pip
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 690
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Architecture: all
+Source: python-pip
+Version: 18.1-5
+Depends: ca-certificates, python3-distutils, python-pip-whl (= 18.1-5), python3:any
+Recommends: build-essential, python3-dev (>= 3.2), python3-setuptools, python3-wheel
+Description: Python package installer
+ pip is the Python package installer.  It integrates with virtualenv, doesn't
+ do partial installs, can save package state for replaying, can install from
+ non-egg sources, and can install from version control repositories.
+ .
+ This is the Python 3 version of the package.
+Homepage: https://pip.pypa.io/en/stable/
+
+Package: python3-pkg-resources
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 534
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: python-setuptools
+Version: 40.8.0-1
+Depends: python3:any
+Suggests: python3-setuptools
+Description: Package Discovery and Resource Access using pkg_resources
+ The pkg_resources module provides an API for Python libraries to
+ access their resource files, and for extensible applications and
+ frameworks to automatically discover plugins.  It also provides
+ runtime support for using C extensions that are inside zipfile-format
+ eggs, support for merging packages that have separately-distributed
+ modules or subpackages, and APIs for managing Python's current
+ "working set" of active packages.
+Homepage: https://pypi.python.org/pypi/setuptools
+
+Package: python3-secretstorage
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 55
+Maintainer: Dmitry Shachnev <mitya57@debian.org>
+Architecture: all
+Source: python-secretstorage
+Version: 2.3.1-2
+Depends: dbus, python3-dbus, python3-cryptography, python3:any (>= 3.3.2-2~)
+Recommends: python3-gi
+Suggests: gnome-keyring (>= 2.30), python-secretstorage-doc
+Description: Python module for storing secrets - Python 3.x version
+ Python-SecretStorage provides a way for securely storing passwords
+ and other secrets.
+ .
+ It uses D-Bus Secret Service API that is supported by GNOME Keyring
+ (>= 2.30) and KSecretsService.
+ .
+ It allows one to create, edit and delete secret items, manipulate
+ secret collections, and search for items matching given attributes.
+ It also supports locking and unlocking collections.
+ .
+ This package provides Python 3.x version of SecretStorage.
+Homepage: https://github.com/mitya57/secretstorage
+
+Package: python3-setuptools
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 1321
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: python-setuptools
+Version: 40.8.0-1
+Depends: python3-pkg-resources (= 40.8.0-1), python3-distutils, python3:any
+Suggests: python-setuptools-doc
+Description: Python3 Distutils Enhancements
+ Extensions to the python-distutils for large or complex distributions.
+Homepage: https://pypi.python.org/pypi/setuptools
+
+Package: python3-six
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 60
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: six
+Version: 1.12.0-1
+Depends: python3:any
+Description: Python 2 and 3 compatibility library (Python 3 interface)
+ Six is a Python 2 and 3 compatibility library. It provides utility
+ functions for smoothing over the differences between the Python versions
+ with the goal of writing Python code that is compatible on both Python
+ versions.
+ .
+ This package provides Six on the Python 3 module path. It is complemented
+ by python-six and pypy-six.
+Homepage: https://pypi.python.org/pypi/six
+
+Package: python3-wheel
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 82
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Architecture: all
+Source: wheel
+Version: 0.32.3-2
+Depends: python3:any
+Recommends: python3-keyring, python3-keyrings.alt, python3-xdg
+Suggests: python3-setuptools
+Description: built-package format for Python
+ A wheel is a ZIP-format archive with a specially formatted filename and the
+ `.whl` extension.  It is designed to contain all the files for a PEP 376
+ compatible install in a way that is very close to the on-disk format.
+ .
+ The wheel project provides a `bdist_wheel` command for setuptools.  Wheel
+ files can be installed with `pip`.
+ .
+ This is the Python 3 compatible package.
+Homepage: https://bitbucket.org/pypa/wheel
+
+Package: python3-xdg
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 165
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Architecture: all
+Source: pyxdg
+Version: 0.25-5
+Depends: python3:any
+Description: Python 3 library to access freedesktop.org standards
+ PyXDG contains implementations of freedesktop.org standards in Python:
+ .
+  * Base Directory Specification Version 0.6
+  * Menu Specification Version 1.0-draft1
+  * Desktop Entry Specification Version 1.0
+  * Icon Theme Specification Version 0.8
+  * Recent File Spec 0.2
+  * Shared-MIME-Database Specification 0.13
+ .
+ This package contains the Python 3 version of the library.
+Homepage: http://www.freedesktop.org/wiki/Software/pyxdg
+
+Package: python3.7
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 409
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: allowed
+Version: 3.7.3-2+deb10u7
+Depends: python3.7-minimal (= 3.7.3-2+deb10u7), libpython3.7-stdlib (= 3.7.3-2+deb10u7), mime-support
+Suggests: python3.7-venv, python3.7-doc, binutils
+Breaks: diffoscope (<< 98), fail2ban (<= 0.10.2-2), gnome-builder (<< 3.28.3-1), gpodder (<< 3.10.3-2), libboost-python1.62.0 (<< 1.62.0+dfsg-6), linux-show-player (<= 0.5-1), oca-core (<= 11.0.20180420-1), openscap-daemon (<< 0.1.10-3), patroni (<< 1.4.4-2), python3-aiomeasures (<< 0.5.14-2), python3-aiopg (<= 0.14.0-1), python3-aiozmq (<= 0.7.1-2), python3-all (<< 3.6.5~rc1-1), python3-applicationinsights (<= 0.11.0-1), python3-astroid (<= 1.6.5-1), python3-astroquery (<= 0.3.8+dfsg-2), python3-async (<= 0.6.2-2), python3-azure (<= 20170915+git-1), python3-blist (<< 1.3.6-5), python3-celery (<= 4.2.0-1), python3-cs (<< 2.3.1-1), python3-cxx-dev (<< 7.0.3-2), python3-dev (<< 3.6.5~rc1-1), python3-django (<< 1:1.11.13-2), python3-dkim (<< 0.9.0), python3-dns (<< 3.2.0-1), python3-doublex (<= 1.8.2-1), python3-dropbox (<= 8.7.1-1), python3-engineio (<= 1.6.1-1), python3-exabgp (<< 4.0.8-1), python3-gbulb (<= 0.5.3-2), python3-glance (<= 2:16.0.1-6), python3-http-parser (<= 0.8.3-2+b3), python3-hug (<= 2.3.0-1.1), python3-jira (<= 1.0.10-1), python3-libcloud (<= 2.3.0-1), python3-mastodon (<= 1.2.2-1), python3-maxminddb (<< 1.4.1-1~), python3-morse-simulator (<= 1.4-3), python3-motor (<= 1.2.3-1.1), python3-murano (<= 1:5.0.0-1), python3-nova (<= 2:17.0.3-12), python3-opcua (<= 0.95.1-1), python3-opengl (<= 3.1.0+dfsg-1), python3-panoramisk (<= 1.0-1), python3-pexpect (<< 4.6.0-1~), python3-protobuf (<= 3.0.0-9.1+b1), python3-protorpc-standalone (<= 0.9.1-3), python3-psycopg2 (<< 2.7.5-2), python3-pyatspi (<= 2.26.0+dfsg-1), python3-pycsw (<< 2.2.0+dfsg-4), python3-pycuda (<= 2017.1.1-2+b1), python3-pylama (<= 7.4.3-1), python3-pysnmp4 (<= 4.4.3-1), python3-rpyc (<= 3.4.4-1), python3-signaller (<= 1.1.0-1), python3-sleekxmpp (<= 1.3.3-3), python3-slixmpp (<< 1.3.0+git20180724-1), python3-tango (<= 9.2.3-1), python3-trollius (<< 2.1~b1-5), python3-tweepy (<= 3.5.0-1), python3-twisted (<< 18.4.0-2), python3-txfixtures (<= 0.2.6-1), python3-ubjson (<= 0.8.5-2), python3-venv (<< 3.6.5-2), python3-websockets (<= 4.0.1-1), python3-ws4py (<= 0.4.2+dfsg1-2), python3-yowsup (<= 2.5.7-3), pyzo (<< 4.4.3-1.1~), salt-common (<= 2017.7.4+dfsg1-1), snakemake (<< 5.2.1-1), visidata (<= 1.0-1), voltron (<= 0.1.4-2), xapers (<< 0.8.2-1.1)
+Description: Interactive high-level object-oriented language (version 3.7)
+ Python is a high-level, interactive, object-oriented language. Its 3.7 version
+ includes an extensive class library with lots of goodies for
+ network programming, system administration, sounds and graphics.
+
+Package: python3.7-dev
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 518
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: allowed
+Source: python3.7
+Version: 3.7.3-2+deb10u7
+Depends: python3.7 (= 3.7.3-2+deb10u7), libpython3.7-dev (= 3.7.3-2+deb10u7), libpython3.7 (= 3.7.3-2+deb10u7), libexpat1-dev
+Recommends: libc6-dev | libc-dev
+Description: Header files and a static library for Python (v3.7)
+ Header files, a static library and development tools for building
+ Python (v3.7) modules, extending the Python interpreter or embedding
+ Python (v3.7) in applications.
+ .
+ Maintainers of Python packages should read README.maintainers.
+
+Package: python3.7-minimal
+Status: install ok installed
+Priority: optional
+Section: python
+Installed-Size: 9979
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: i386
+Multi-Arch: allowed
+Source: python3.7
+Version: 3.7.3-2+deb10u7
+Depends: libpython3.7-minimal (= 3.7.3-2+deb10u7), libexpat1 (>= 2.1~beta3), zlib1g (>= 1:1.2.0)
+Pre-Depends: libc6 (>= 2.28)
+Recommends: python3.7
+Suggests: binfmt-support
+Conflicts: binfmt-support (<< 1.1.2)
+Description: Minimal subset of the Python language (version 3.7)
+ This package contains the interpreter and some essential modules.  It can
+ be used in the boot process for some basic tasks.
+ See /usr/share/doc/python3.7-minimal/README.Debian for a list of the modules
+ contained in this package.
+
+Package: readline-common
+Status: install ok installed
+Priority: important
+Section: utils
+Installed-Size: 89
+Maintainer: Matthias Klose <doko@debian.org>
+Architecture: all
+Multi-Arch: foreign
+Source: readline
+Version: 7.0-5
+Replaces: libreadline-common, libreadline4 (<< 4.3-16), libreadline5 (<< 5.0-11)
+Depends: dpkg (>= 1.15.4) | install-info
+Suggests: readline-doc
+Conflicts: libreadline-common, libreadline5 (<< 5.0-11)
+Description: GNU readline and history libraries, common files
+ The GNU readline library aids in the consistency of user interface
+ across discrete programs that need to provide a command line
+ interface.
+ .
+ The GNU history library provides a consistent user interface for
+ recalling lines of previously typed input.
+
 Package: sed
 Essential: yes
 Status: install ok installed
@@ -1965,6 +4638,24 @@ Description: GNU stream editor for filtering/transforming text
  list of commands, and writes the results to the standard
  output.
 Homepage: https://www.gnu.org/software/sed/
+
+Package: shared-mime-info
+Status: install ok installed
+Priority: optional
+Section: misc
+Installed-Size: 4833
+Maintainer: Debian freedesktop.org maintainers <pkg-freedesktop-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Version: 1.10-1
+Depends: libc6 (>= 2.4), libglib2.0-0 (>= 2.35.9), libxml2 (>= 2.7.4)
+Description: FreeDesktop.org shared MIME database and spec
+ This is the shared MIME-info database from the X Desktop Group. It is required
+ by any program complying to the Shared MIME-Info Database spec, which is also
+ included in this package.
+ .
+ At this time at least ROX, GNOME, KDE and Xfce use this database.
+Homepage: https://freedesktop.org/wiki/Software/shared-mime-info
 
 Package: sysvinit-utils
 Essential: yes
@@ -2058,6 +4749,68 @@ Description: miscellaneous system utilities
  important utilities included in this package allow you to view kernel
  messages, create new filesystems, view block device information,
  interface with real time clock, etc.
+
+Package: xdg-user-dirs
+Status: install ok installed
+Priority: optional
+Section: utils
+Installed-Size: 370
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: foreign
+Version: 0.17-2
+Depends: libc6 (>= 2.4)
+Conffiles:
+ /etc/xdg/autostart/xdg-user-dirs.desktop 19075979fa4ac105aa08763bd68e9589
+ /etc/xdg/user-dirs.conf 602a95ec7fe4068512bebb712c41102d
+ /etc/xdg/user-dirs.defaults b8595963fe74aeb65e854ba9da7f1acb
+Description: tool to manage well known user directories
+ xdg-user-dirs is a tool to help manage "well known" user directories
+ like the desktop folder and the music folder. It also handles
+ localization (i.e. translation) of the filenames.
+ .
+ The way it works is that xdg-user-dirs-update is run very early in the
+ login phase. This program reads a configuration file, and a set of
+ default directories. It then creates localized versions of these
+ directories in the users home directory and sets up a config file in
+ $(XDG_CONFIG_HOME)/user-dirs.dirs (XDG_CONFIG_HOME defaults to
+ ~/.config) that applications can read to find these directories.
+Homepage: http://www.freedesktop.org/wiki/Software/xdg-user-dirs
+
+Package: xz-utils
+Status: install ok installed
+Priority: standard
+Section: utils
+Installed-Size: 448
+Maintainer: Jonathan Nieder <jrnieder@gmail.com>
+Architecture: i386
+Multi-Arch: foreign
+Version: 5.2.4-1+deb10u1
+Replaces: lzip (<< 1.8~rc2), xz-lzma
+Provides: lzma
+Depends: libc6 (>= 2.28), liblzma5 (>= 5.2.2)
+Breaks: lzip (<< 1.8~rc2)
+Conflicts: lzma (<< 9.22-1), xz-lzma
+Description: XZ-format compression utilities
+ XZ is the successor to the Lempel-Ziv/Markov-chain Algorithm
+ compression format, which provides memory-hungry but powerful
+ compression (often better than bzip2) and fast, easy decompression.
+ .
+ This package provides the command line tools for working with XZ
+ compression, including xz, unxz, xzcat, xzgrep, and so on. They can
+ also handle the older LZMA format, and if invoked via appropriate
+ symlinks will emulate the behavior of the commands in the lzma
+ package.
+ .
+ The XZ format is similar to the older LZMA format but includes some
+ improvements for general use:
+ .
+  * 'file' magic for detecting XZ files;
+  * crc64 data integrity check;
+  * limited random-access reading support;
+  * improved support for multithreading (not used in xz-utils);
+  * support for flushing the encoder.
+Homepage: https://tukaani.org/xz/
 
 Package: zlib1g
 Status: install ok installed

@@ -2,7 +2,7 @@
 f6929e6428cfdb7c7565e1edb69ecf8d  lib/i386-linux-gnu/libBrokenLocale-2.28.so
 994687e315e3236d88c268c91c4b1ef2  lib/i386-linux-gnu/libSegFault.so
 a83d3e428b5879ba107bda69f1776709  lib/i386-linux-gnu/libanl-2.28.so
-85f2d9abc2c4b5f20620d7ce9903ce1c  lib/i386-linux-gnu/libc-2.28.so
+58eadd34d5f95e2262678729ddaefe88  lib/i386-linux-gnu/libc-2.28.so
 04d57e78bd1186e6ca329ad61e24e8c8  lib/i386-linux-gnu/libcrypt-2.28.so
 6c35a015367e025bc282268977fcdb0a  lib/i386-linux-gnu/libdl-2.28.so
 013738c3bd132417c5416b71a5a7efaa  lib/i386-linux-gnu/libm-2.28.so
@@ -280,7 +280,7 @@ bbfdb91a4e6a5b5f565141d599c41bfc  usr/share/doc/libc6/NEWS.Debian.gz
 2d4e29664ae0ba78548b4f4bb9763330  usr/share/doc/libc6/NEWS.gz
 9f384bc94867d6f5b3ac21c215fc88c6  usr/share/doc/libc6/README.Debian.gz
 085c305fdce1731c5eb5684e6d3263a9  usr/share/doc/libc6/README.hesiod.gz
-42bee00877826661d52d9ec30983937b  usr/share/doc/libc6/changelog.Debian.gz
+77b9f1bd6d1926834598cb85dd553298  usr/share/doc/libc6/changelog.Debian.gz
 48d68260ab7331ccff4ff77677d7607d  usr/share/doc/libc6/changelog.gz
 d848be5c37cd71d76c5a7b9e7e28868a  usr/share/doc/libc6/copyright
 645592498f645cf6ff957a959d166380  usr/share/lintian/overrides/libc6

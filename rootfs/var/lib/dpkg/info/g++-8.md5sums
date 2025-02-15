@@ -1,0 +1,5 @@
+b0562aa18a460333b18e0a20f65a1f6a  usr/bin/i686-linux-gnu-g++-8
+2a3357f4973adc7d09f9d3beccddac5e  usr/lib/gcc/i686-linux-gnu/8/cc1plus
+d34e924e0b649f39a4c876c1a4ec4e1f  usr/share/doc/gcc-8-base/C++/README.C++
+d0771ff062aa82b7d1a8b8c156a2666f  usr/share/doc/gcc-8-base/C++/changelog.gz
+a89ae81e2bc26ab60e743086b3bf6453  usr/share/lintian/overrides/g++-8

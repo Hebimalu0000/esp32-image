@@ -37,3 +37,4 @@ staff:*::
 games:*::
 users:*::
 nogroup:*::
+user:!::
